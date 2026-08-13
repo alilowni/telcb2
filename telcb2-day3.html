@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>telc Deutsch B2 — Day 3: Speaking Part 2 (Diskussion)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121311;
+  --bg-deep:#0d0e0c;
+  --panel:#1a1b18;
+  --panel-2:#1f201c;
+  --line:#2c2e28;
+  --line-soft:#24261f;
+  --text:#e9e5da;
+  --text-dim:#a8a294;
+  --text-faint:#7d786c;
+  --accent:#c9a961;
+  --accent-dim:#8a7440;
+  --sage:#8fa583;
+  --rose:#c08b7d;
+  --radius:3px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,169,97,0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(143,165,131,0.04), transparent 70%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:'Karla', sans-serif;
+  font-size:17px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 32px 120px;}
+
+header{padding:72px 0 48px;border-bottom:1px solid var(--line);margin-bottom:56px;}
+.eyebrow{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px;}
+h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,6vw,58px);line-height:1.1;letter-spacing:-0.015em;margin-bottom:14px;}
+h1 em{font-style:italic;color:var(--accent);}
+.subtitle{color:var(--text-dim);font-size:19px;max-width:60ch;font-weight:300;}
+
+.tracker{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap;}
+.day-chip{flex:1;min-width:150px;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;background:var(--panel);text-decoration:none;color:inherit;display:block;}
+a.day-chip:hover{border-color:var(--accent-dim);}
+.day-chip.active{border-color:var(--accent-dim);background:rgba(201,169,97,0.07);}
+.day-chip.done{opacity:0.55;}
+.day-chip .n{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);}
+.day-chip.active .n{color:var(--accent);}
+.day-chip .t{font-size:14px;color:var(--text-dim);margin-top:3px;}
+.day-chip.active .t{color:var(--text);}
+
+section{margin-bottom:72px;scroll-margin-top:30px;}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line-soft);}
+.sec-num{font-family:'Newsreader',serif;font-size:15px;color:var(--accent);font-weight:500;letter-spacing:0.08em;flex-shrink:0;}
+h2{font-family:'Newsreader',serif;font-weight:400;font-size:31px;line-height:1.25;letter-spacing:-0.01em;}
+h3{font-family:'Karla',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px;}
+h4{font-family:'Newsreader',serif;font-size:21px;font-weight:500;margin:28px 0 10px;}
+p{margin-bottom:16px;color:var(--text-dim);}
+p.lead{color:var(--text);font-size:19px;font-weight:300;}
+strong{color:var(--text);font-weight:600;}
+
+.de{color:var(--text);font-weight:500;}
+.en{color:var(--text-faint);font-style:italic;font-size:15px;}
+
+ul,ol{margin:0 0 20px 0;padding-left:0;list-style:none;}
+li{color:var(--text-dim);margin-bottom:11px;padding-left:24px;position:relative;}
+li::before{content:"—";position:absolute;left:0;color:var(--accent-dim);}
+ol{counter-reset:c;}
+ol li::before{counter-increment:c;content:counter(c) ".";font-size:14px;color:var(--accent-dim);top:1px;}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin:24px 0;}
+.panel-title{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:16px;font-weight:600;}
+.callout{border-left:2px solid var(--accent);padding-left:22px;margin:26px 0;}
+.callout p:last-child{margin-bottom:0;}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);margin:28px 0;overflow:hidden;}
+.fact{background:var(--panel);padding:20px 22px;}
+.fact .k{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;}
+.fact .v{font-family:'Newsreader',serif;font-size:26px;color:var(--text);line-height:1.2;}
+.fact .v small{font-size:14px;color:var(--text-dim);font-family:'Karla',sans-serif;display:block;margin-top:4px;}
+
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;}
+th{text-align:left;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);font-weight:600;padding:0 14px 12px 0;border-bottom:1px solid var(--line);}
+td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line-soft);color:var(--text-dim);vertical-align:top;}
+td:first-child{color:var(--text);width:34%;}
+
+.phrase{padding:15px 0;border-bottom:1px solid var(--line-soft);}
+.phrase:last-child{border-bottom:none;padding-bottom:0;}
+.phrase .g{color:var(--text);font-size:17px;line-height:1.55;}
+.phrase .g::before{content:"„";color:var(--accent-dim);}
+.phrase .g::after{content:"“";color:var(--accent-dim);}
+.phrase .e{color:var(--text-faint);font-size:14.5px;font-style:italic;margin-top:4px;line-height:1.5;}
+.tag{display:inline-block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);border-radius:2px;padding:2px 8px;margin-bottom:9px;}
+
+.article{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;margin:24px 0;font-family:'Newsreader',serif;line-height:1.8;color:var(--text);}
+.article .kicker{font-family:'Karla',sans-serif;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:10px;}
+.article h5{font-family:'Newsreader',serif;font-size:23px;font-weight:500;margin-bottom:14px;color:var(--text);line-height:1.3;}
+.article p{color:var(--text-dim);font-size:17px;margin-bottom:0;}
+
+.dialogue{margin:24px 0;}
+.turn{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line-soft);}
+.turn:last-child{border-bottom:none;}
+.who{font-family:'Newsreader',serif;font-size:16px;color:var(--accent);flex-shrink:0;width:26px;line-height:1.6;}
+.said{font-size:16.5px;color:var(--text);line-height:1.7;}
+.said .note{display:block;font-size:13px;color:var(--text-faint);font-style:italic;margin-top:5px;}
+
+.topic-cloud{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin:22px 0;}
+.topic-cloud .grp{margin-bottom:18px;}
+.topic-cloud .grp:last-child{margin-bottom:0;}
+.topic-cloud .gt{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;font-weight:600;}
+.topic-cloud .items{font-size:15.5px;color:var(--text-dim);line-height:1.9;}
+.topic-cloud .items b{color:var(--text);font-weight:500;}
+
+.timeline{margin:26px 0;}
+.tl-row{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-soft);}
+.tl-row:last-child{border-bottom:none;}
+.tl-time{font-family:'Newsreader',serif;font-size:19px;color:var(--accent);flex-shrink:0;width:98px;line-height:1.4;}
+.tl-body{color:var(--text-dim);font-size:15.5px;}
+.tl-body b{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:16px;}
+
+.mistake{padding:14px 0;border-bottom:1px solid var(--line-soft);}
+.mistake:last-child{border-bottom:none;}
+.mistake .bad{color:var(--rose);font-size:15.5px;}
+.mistake .bad::before{content:"✕  ";font-size:13px;}
+.mistake .fix{color:var(--sage);font-size:15.5px;margin-top:4px;}
+.mistake .fix::before{content:"✓  ";font-size:13px;}
+
+.recap{border:1px solid var(--accent-dim);border-radius:var(--radius);background:rgba(201,169,97,0.04);padding:32px 34px;}
+.recap ul li::before{content:"·";color:var(--accent);font-size:20px;top:-3px;}
+
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--text-faint);font-size:14.5px;}
+footer strong{color:var(--accent);}
+
+@media(max-width:640px){
+  body{font-size:16px;}
+  .wrap{padding:0 20px 80px;}
+  .sec-head{flex-direction:column;gap:6px;}
+  .tl-row{flex-direction:column;gap:4px;}
+  .tl-time{width:auto;}
+  table,thead,tbody,th,td,tr{display:block;}
+  th{display:none;}
+  td{border-bottom:none;padding:2px 0;}
+  td:first-child{width:auto;}
+  tr{border-bottom:1px solid var(--line-soft);padding:14px 0;display:block;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none;">telc Deutsch B2</a> · Day 3 of 4</div>
+  <h1>Diskussion<br><em>Speaking · Part 2</em></h1>
+  <p class="subtitle">You and your partner read the same short newspaper text on a controversial subject, summarise it, and then discuss it. This is the part where candidates lose the most points — almost always for the same reason.</p>
+
+  <div class="tracker">
+    <a class="day-chip done" href="telcb2-day1.html"><div class="n">Day 1</div><div class="t">Writing ✓</div></a>
+    <a class="day-chip done" href="telcb2-day2.html"><div class="n">Day 2</div><div class="t">Speaking · Part 1 ✓</div></a>
+    <a class="day-chip active" href="telcb2-day3.html"><div class="n">Day 3</div><div class="t">Speaking · Part 2</div></a>
+    <a class="day-chip" href="telcb2-day4.html"><div class="n">Day 4</div><div class="t">Speaking · Part 3</div></a>
+  </div>
+</header>
+
+<!-- 1. INTRO -->
+<section id="intro">
+  <div class="sec-head"><div class="sec-num">01</div><h2>Introduction</h2></div>
+
+  <p class="lead">Today we cover the second part of the oral exam: the <span class="de">Diskussion</span>.</p>
+
+  <p>Both candidates receive the <strong>same short authentic text</strong> — a newspaper or magazine article taking a position on a current, debatable issue. You each summarise it briefly, then discuss it together for about five minutes: your opinion, your reasons, your own experience, and where possible, solutions.</p>
+
+  <div class="callout">
+    <p><strong>The single most important thing to understand about this part:</strong> it is not a test of whether you have interesting opinions. It is a test of whether you can hold a <em>conversation</em> — react to what the other person says, agree, object, come back with a counter-argument. Two candidates who each deliver a brilliant monologue will both score badly.</p>
+  </div>
+
+  <h3>Why this part matters</h3>
+  <ul>
+    <li>It is worth <strong>25 of the 75 oral points</strong>, and the oral block must reach 45 points on its own.</li>
+    <li>It is the part with the <strong>widest topic range</strong> — anything from school policy to electric cars — so vocabulary preparation pays off directly.</li>
+    <li>The interaction skills you build here carry straight into Part 3 tomorrow.</li>
+  </ul>
+
+  <h3>Good news about the scoring</h3>
+  <p>You are graded <strong>individually</strong>, not against your partner. If your partner is weak, that does not drag you down. In fact, helping a struggling partner — asking them a question, picking up a half-finished point — is scored <em>positively</em>, because it demonstrates exactly the interactive competence being tested.</p>
+</section>
+
+<!-- 2. GOALS -->
+<section id="goals">
+  <div class="sec-head"><div class="sec-num">02</div><h2>What we're going to learn today</h2></div>
+
+  <ol>
+    <li>What the stimulus text looks like and how to read it in three minutes.</li>
+    <li>The five-phase shape of a good five-minute discussion.</li>
+    <li>A four-step formula for building any argument in German.</li>
+    <li>How to disagree with your partner politely and productively.</li>
+    <li>The topics that keep coming back, with the German vocabulary to search for.</li>
+  </ol>
+
+  <h3>Today's goal in one sentence</h3>
+  <p class="lead">Be able to take any controversial statement, pick a side within thirty seconds, and defend it in a real back-and-forth.</p>
+</section>
+
+<!-- 3. MAIN LESSON -->
+<section id="lesson">
+  <div class="sec-head"><div class="sec-num">03</div><h2>The main lesson</h2></div>
+
+  <h3>The hard facts</h3>
+
+  <div class="facts">
+    <div class="fact"><div class="k">Duration</div><div class="v">~5 min<small>for the pair</small></div></div>
+    <div class="fact"><div class="k">Points</div><div class="v">25<small>of 75 oral</small></div></div>
+    <div class="fact"><div class="k">Format</div><div class="v">Dialog<small>not monologue</small></div></div>
+    <div class="fact"><div class="k">Prep</div><div class="v">~8 min<small>of your 20</small></div></div>
+  </div>
+
+  <h3>What the text looks like</h3>
+
+  <p>Expect a short authentic journalistic text — typically 100–200 words — that reports a study, a proposal, or a trend and takes a clear position. It usually contains a built-in conflict: someone argues <em>for</em> something, critics argue <em>against</em>.</p>
+
+  <p>The official example in the telc handbook is a study from a social research institute in Hannover arguing in favour of <strong>teaching boys and girls in separate schools</strong>. That gives you a good sense of the register: serious, everyday-relevant, arguable from both sides.</p>
+
+  <h4>A sample stimulus text</h4>
+
+  <div class="article">
+    <div class="kicker">Beispieltext</div>
+    <h5>Mädchen und Jungen getrennt unterrichten?</h5>
+    <p>Ein Forschungsinstitut aus Hannover kommt zu einem überraschenden Ergebnis: Mädchen und Jungen sollten zumindest in einigen Fächern getrennt unterrichtet werden. In gemischten Klassen, so die Studie, melden sich Mädchen im Physikunterricht deutlich seltener, während Jungen im Deutschunterricht schneller aufgeben. In getrennten Gruppen verschwinde dieser Druck, und beide Seiten trauten sich mehr zu. Kritiker halten dagegen, dass die Schule auf das echte Leben vorbereiten solle — und dort arbeiten Männer und Frauen schließlich jeden Tag zusammen.</p>
+  </div>
+
+  <p class="en">In English: a Hannover research institute finds that girls speak up less in physics and boys give up faster in German when classes are mixed; separating them removes that pressure. Critics reply that school should prepare pupils for real life, where men and women work together.</p>
+
+  <h4>How to read it in three minutes</h4>
+  <ul>
+    <li><strong>Find the claim.</strong> One sentence: who wants what? (<em>The institute wants separated classes.</em>)</li>
+    <li><strong>Find the reason given.</strong> (<em>Girls hold back in physics, boys give up in German.</em>)</li>
+    <li><strong>Find the counter-argument.</strong> Most texts hand you one for free. (<em>School should mirror real life.</em>)</li>
+    <li><strong>Pick your side and note two arguments plus one personal example.</strong> That's your whole preparation.</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>You do not have to state your real opinion.</strong> Choose the side you have more German vocabulary for. Nobody is checking your convictions — they are checking whether you can argue.</p>
+  </div>
+
+  <h3>The five phases of the discussion</h3>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-time">1 · 60s</div><div class="tl-body"><b>Zusammenfassung — summarise the text</b>Two or three sentences each. What is it about, what does the author claim. Don't retell every detail.</div></div>
+    <div class="tl-row"><div class="tl-time">2 · 60s</div><div class="tl-body"><b>Standpunkt — state your position</b>Say clearly whether you agree, and give your first reason. Then hand over: <span class="de">„Wie siehst du das?“</span></div></div>
+    <div class="tl-row"><div class="tl-time">3 · 120s</div><div class="tl-body"><b>Austausch — the real discussion</b>React to each other. Agree partially, object, bring examples, counter. This is the core and where the points are.</div></div>
+    <div class="tl-row"><div class="tl-time">4 · 45s</div><div class="tl-body"><b>Lösungen — move toward solutions</b>What could actually be done? A compromise, a middle path, a condition. Examiners like to hear this.</div></div>
+    <div class="tl-row"><div class="tl-time">5 · 15s</div><div class="tl-body"><b>Fazit — brief conclusion</b>One sentence summing up where you both ended up. Optional, but it looks finished.</div></div>
+  </div>
+
+  <h3>The argument formula</h3>
+
+  <p>Every good contribution in this part has the same four steps. Learn it as a reflex:</p>
+
+  <table>
+    <thead><tr><th>Step</th><th>German</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1 · These</strong><br><span class="en">your claim</span></td><td><span class="de">Ich bin der Meinung, dass getrennte Klassen keine gute Lösung sind.</span></td></tr>
+      <tr><td><strong>2 · Begründung</strong><br><span class="en">your reason</span></td><td><span class="de">… weil Kinder gerade in der Schule lernen müssen, miteinander umzugehen.</span></td></tr>
+      <tr><td><strong>3 · Beispiel</strong><br><span class="en">evidence — usually personal</span></td><td><span class="de">Bei uns in der Klasse war es zum Beispiel so, dass …</span></td></tr>
+      <tr><td><strong>4 · Folgerung / Rückfrage</strong><br><span class="en">conclusion or hand-over</span></td><td><span class="de">Deshalb halte ich das für den falschen Weg. Wie siehst du das?</span></td></tr>
+    </tbody>
+  </table>
+
+  <p>Four steps takes about twenty seconds to say. That is the right length for one turn. Anything much longer becomes a monologue.</p>
+
+  <h4>A model exchange</h4>
+
+  <div class="dialogue">
+    <div class="turn"><div class="who">A</div><div class="said">In dem Text geht es um die Frage, ob Mädchen und Jungen getrennt unterrichtet werden sollten. Ein Institut aus Hannover ist der Meinung, dass beide Gruppen in getrennten Klassen mutiger wären. Kritiker sagen dagegen, dass die Schule auf das reale Leben vorbereiten muss.<span class="note">Phase 1 — summary in three sentences. Nothing more is needed.</span></div></div>
+
+    <div class="turn"><div class="who">B</div><div class="said">Genau. Und ich muss sagen, ich finde die Idee gar nicht so schlecht. Meiner Meinung nach trauen sich Mädchen in gemischten Klassen wirklich weniger — bei uns hat sich in Mathe fast nur die Jungen gemeldet. Wie siehst du das?<span class="note">Position + personal example + hand-over. Short and complete.</span></div></div>
+
+    <div class="turn"><div class="who">A</div><div class="said">Da hast du zum Teil recht, das habe ich auch erlebt. Trotzdem sehe ich das anders. Denn wenn wir die Kinder trennen, lösen wir das Problem ja nicht, sondern wir gehen ihm aus dem Weg. Später im Beruf sitzen sie ja wieder zusammen.<span class="note">Partial agreement first, then objection with a reason. This is the highest-scoring move in the whole part.</span></div></div>
+
+    <div class="turn"><div class="who">B</div><div class="said">Das ist ein gutes Argument. Aber meinst du nicht, dass man beides kombinieren könnte? Zum Beispiel nur in ein oder zwei Fächern getrennt, und der Rest gemeinsam?<span class="note">Acknowledges the point, then moves toward a compromise — phase 4.</span></div></div>
+
+    <div class="turn"><div class="who">A</div><div class="said">Doch, das wäre für mich ein guter Kompromiss. Wichtiger wäre mir allerdings, dass die Lehrer besser ausgebildet werden. Dann bräuchte man die Trennung vielleicht gar nicht.<span class="note">Accepts partly, adds a further solution. The discussion ends somewhere, rather than stopping.</span></div></div>
+  </div>
+
+  <h3>Topics that keep coming back</h3>
+
+  <p>telc does not publish a topic list, so these come from prep schools and past candidates rather than official sources — treat them as high-probability practice areas, not guarantees. Prepare 5–10 words of vocabulary for each.</p>
+
+  <div class="topic-cloud">
+    <div class="grp">
+      <div class="gt">Education &amp; upbringing</div>
+      <div class="items"><b>getrennte Schulen</b> (single-sex schools) · <b>Ausbildung oder Studium</b> · <b>Privatschulen</b> · <b>Präsenz- oder Online-Unterricht</b> · <b>Erziehung</b> · <b>Smartphones für Kinder</b> · <b>Hausaufgaben</b></div>
+    </div>
+    <div class="grp">
+      <div class="gt">Digital life &amp; technology</div>
+      <div class="items"><b>soziale Medien</b> · <b>Datenschutz</b> · <b>Überwachungskameras</b> · <b>künstliche Intelligenz</b> · <b>Roboter am Arbeitsplatz</b> · <b>Gewalt in Computerspielen</b> · <b>bargeldloses Bezahlen</b></div>
+    </div>
+    <div class="grp">
+      <div class="gt">Environment &amp; consumption</div>
+      <div class="items"><b>Klimawandel</b> · <b>Umweltschutz</b> · <b>Elektroautos</b> · <b>Bio-Lebensmittel</b> · <b>Massentourismus</b> · <b>Plastikmüll</b> · <b>Atomenergie</b> · <b>Tierversuche</b> · <b>Tiere im Zirkus</b></div>
+    </div>
+    <div class="grp">
+      <div class="gt">Health &amp; lifestyle</div>
+      <div class="items"><b>Vegetarismus</b> · <b>Fast Food</b> · <b>Rauchen bei Jugendlichen</b> · <b>Nahrungsergänzungsmittel</b> · <b>Schönheitsoperationen</b> · <b>Sport im Alltag</b></div>
+    </div>
+    <div class="grp">
+      <div class="gt">Work &amp; living</div>
+      <div class="items"><b>Homeoffice</b> · <b>Teamarbeit</b> · <b>Work-Life-Balance</b> · <b>Leben auf dem Land oder in der Stadt</b> · <b>Wohngemeinschaften</b> · <b>Auswandern</b> · <b>Denglisch</b></div>
+    </div>
+  </div>
+
+  <p>Use these German terms as search keywords — typing <span class="de">„Pro und Contra Homeoffice“</span> or <span class="de">„Argumente Elektroautos“</span> into a search engine gives you ready-made argument lists to learn from.</p>
+</section>
+
+<!-- 4. PHRASES -->
+<section id="phrases">
+  <div class="sec-head"><div class="sec-num">04</div><h2>Ready-made phrases (Redemittel)</h2></div>
+
+  <p>These are the load-bearing phrases of this part. You will use most of them in every discussion, regardless of topic — which is exactly why they're worth automating.</p>
+
+  <div class="panel">
+    <div class="panel-title">Summarising the text</div>
+    <div class="phrase">
+      <div class="g">In dem Text geht es um die Frage, ob …</div>
+      <div class="e">The text is about the question of whether … — the cleanest possible opening.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Die Überschrift lautet „…“, und der Autor vertritt die Meinung, dass …</div>
+      <div class="e">The headline is "…", and the author takes the view that …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Laut einer Studie …</div>
+      <div class="e">According to a study … — useful whenever the text reports research.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Kritiker halten dagegen, dass …</div>
+      <div class="e">Critics argue against this that … — lets you show both sides in one sentence.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Giving your opinion</div>
+    <div class="phrase">
+      <div class="g">Meiner Meinung nach …</div>
+      <div class="e">In my opinion … — note the word order: verb comes straight after.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich bin der Ansicht, dass …</div>
+      <div class="e">I take the view that … — a step more formal than "ich denke".</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Für mich überwiegen ganz klar die Vorteile.</div>
+      <div class="e">For me the advantages clearly outweigh the disadvantages.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich halte das für einen guten / falschen Weg.</div>
+      <div class="e">I consider that a good / wrong approach.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Justifying — the part that earns points</div>
+    <div class="phrase">
+      <div class="g">… und zwar aus einem einfachen Grund: …</div>
+      <div class="e">… and for one simple reason: … — a strong, natural way to introduce your argument.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Aus eigener Erfahrung kann ich sagen, dass …</div>
+      <div class="e">From my own experience I can say that … — personal evidence always counts.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ein gutes Beispiel dafür ist …</div>
+      <div class="e">A good example of this is …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Man darf dabei nicht vergessen, dass …</div>
+      <div class="e">One mustn't forget that …</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Agreeing — with something added</div>
+    <div class="phrase">
+      <div class="g">Da hast du völlig recht.</div>
+      <div class="e">You're absolutely right there.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">So sehe ich das auch, und ich würde sogar noch weiter gehen: …</div>
+      <div class="e">I see it that way too, and I'd go even further: … — agreement that still adds content.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Das leuchtet mir ein.</div>
+      <div class="e">That makes sense to me.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Das ist ein gutes Argument.</div>
+      <div class="e">That's a good argument. — buys you two seconds of thinking time and sounds engaged.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Disagreeing — politely but clearly</div>
+    <div class="phrase"><span class="tag">the strongest move</span>
+      <div class="g">Da hast du zum Teil recht. Trotzdem sehe ich das anders, weil …</div>
+      <div class="e">You're partly right. Nevertheless I see it differently, because … — concede first, then object. This is what a B2 discussion is supposed to sound like.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich sehe das etwas anders.</div>
+      <div class="e">I see that somewhat differently. — soft, safe, always usable.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">In diesem Punkt würde ich dir widersprechen.</div>
+      <div class="e">On this point I would disagree with you.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Das kann ich nicht ganz nachvollziehen. Meinst du wirklich, dass …?</div>
+      <div class="e">I can't quite follow that. Do you really think that …?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Einerseits stimmt das, andererseits …</div>
+      <div class="e">On the one hand that's true, on the other hand … — the classic weighing structure.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Keeping the conversation alive</div>
+    <div class="phrase">
+      <div class="g">Wie siehst du das?</div>
+      <div class="e">How do you see it? — end two or three of your turns with this and your interaction score takes care of itself.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Was meinst du dazu?</div>
+      <div class="e">What do you think about that?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Entschuldige, wenn ich dich kurz unterbreche, aber …</div>
+      <div class="e">Sorry to interrupt you briefly, but … — polite interruption is a scored skill, not rudeness.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Darf ich dazu noch etwas ergänzen?</div>
+      <div class="e">May I add something to that?</div>
+    </div>
+    <div class="phrase"><span class="tag">if your partner is stuck</span>
+      <div class="g">Und wie ist das eigentlich in deinem Land?</div>
+      <div class="e">And how is that actually in your country? — rescuing a silent partner is scored positively.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Solutions and conclusion</div>
+    <div class="phrase">
+      <div class="g">Vielleicht könnte man beides kombinieren.</div>
+      <div class="e">Perhaps one could combine both.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ein möglicher Kompromiss wäre, dass …</div>
+      <div class="e">A possible compromise would be that …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Man müsste vor allem dafür sorgen, dass …</div>
+      <div class="e">Above all, one would have to ensure that …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Zusammenfassend kann man sagen, dass wir uns in einem Punkt einig sind: …</div>
+      <div class="e">To sum up, we agree on one point: …</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TIPS -->
+<section id="tips">
+  <div class="sec-head"><div class="sec-num">05</div><h2>Exam tips</h2></div>
+
+  <h3>Time management</h3>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-time">Prep room</div><div class="tl-body"><b>~8 of your 20 minutes</b>Read the text twice, note the claim and the counter-claim, choose your side, write two arguments and one personal example as keywords.</div></div>
+    <div class="tl-row"><div class="tl-time">First minute</div><div class="tl-body"><b>Summary — keep it short</b>Three sentences. Candidates who retell the whole text eat up the time they need for arguing.</div></div>
+    <div class="tl-row"><div class="tl-time">Throughout</div><div class="tl-body"><b>Aim for a 50/50 split</b>Roughly equal talking time. Turns of about 20 seconds each.</div></div>
+    <div class="tl-row"><div class="tl-time">Last minute</div><div class="tl-body"><b>Steer toward a solution</b>Even if you disagree, propose a middle path. It gives the discussion a shape.</div></div>
+  </div>
+
+  <h3>What examiners are looking for</h3>
+  <ul>
+    <li><strong>Genuine interaction</strong> — you build on what your partner actually said, using their words.</li>
+    <li><strong>Justified opinions</strong> — never a bare claim without a reason.</li>
+    <li><strong>Range of expression</strong> — different phrases for agreeing and disagreeing, not <span class="de">„ja, aber“</span> five times.</li>
+    <li><strong>Balanced participation</strong> — you neither dominate nor disappear.</li>
+    <li><strong>Politeness under disagreement</strong> — you can object without being blunt.</li>
+  </ul>
+
+  <h3>Common mistakes to avoid</h3>
+
+  <div class="panel">
+    <div class="mistake">
+      <div class="bad">Delivering a two-minute monologue with everything you prepared.</div>
+      <div class="fix">Short turns, then hand over. The interaction <em>is</em> the task.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Retelling the text in detail instead of summarising it.</div>
+      <div class="fix">Three sentences maximum, then straight to your position.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Sitting in silence while your partner talks, waiting for your turn.</div>
+      <div class="fix">Show you're listening — <span class="de">„Genau.“ „Das stimmt.“ „Interessant.“</span> — then react to their content.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Refusing to take a side: "I agree and I also disagree, it depends."</div>
+      <div class="fix">Pick a position in the prep room and defend it. You can soften later; you cannot argue from nowhere.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Blunt contradiction: <span class="de">„Nein, das ist falsch.“</span></div>
+      <div class="fix">Concede, then object: <span class="de">„Da hast du zum Teil recht, trotzdem …“</span></div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Talking to the examiners instead of your partner.</div>
+      <div class="fix">Face your partner. The examiners are observers, not participants.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Panicking because the topic is unfamiliar.</div>
+      <div class="fix">You are not judged on expertise. <span class="de">„Damit kenne ich mich nicht besonders gut aus, aber ich stelle mir vor, dass …“</span> is a perfectly good B2 sentence.</div>
+    </div>
+  </div>
+
+  <h3>Three quick practical tips</h3>
+  <ul>
+    <li><strong>Prepare three universal arguments</strong> that fit almost any topic: money/cost, time, and effect on health or on children. You can attach them to nearly anything.</li>
+    <li><strong>Practise the concede-then-object move</strong> until it's automatic. It is the single phrase pattern that most distinguishes a B2 speaker from a B1 one.</li>
+    <li><strong>Read one German opinion piece a week</strong> — a short <span class="de">Pro-und-Contra</span> column is ideal. You are collecting arguments, not just vocabulary.</li>
+  </ul>
+</section>
+
+<!-- 6. RECAP -->
+<section id="recap">
+  <div class="sec-head"><div class="sec-num">06</div><h2>Recap</h2></div>
+
+  <div class="recap">
+    <h4 style="margin-top:0">The format</h4>
+    <ul>
+      <li>Both candidates read the same short controversial newspaper text</li>
+      <li>Brief summary, then ~5 minutes of discussion · 25 of 75 oral points</li>
+      <li>Scored individually — a weak partner does not lower your score</li>
+      <li>Helping a struggling partner is scored positively</li>
+    </ul>
+
+    <h4>The five phases</h4>
+    <ul>
+      <li>Zusammenfassung → Standpunkt → Austausch → Lösungen → Fazit</li>
+    </ul>
+
+    <h4>The argument formula</h4>
+    <ul>
+      <li>These → Begründung → Beispiel → Folgerung / Rückfrage</li>
+      <li>About twenty seconds per turn, then hand over</li>
+    </ul>
+
+    <h4>The one phrase to over-learn</h4>
+    <ul>
+      <li><span class="de">„Da hast du zum Teil recht. Trotzdem sehe ich das anders, weil …“</span></li>
+      <li>Concede, then object — this is what B2 discussion sounds like</li>
+    </ul>
+
+    <h4>The single most useful habit</h4>
+    <ul>
+      <li>End your turns with a question. <span class="de">„Wie siehst du das?“</span> forces the interaction the examiners are grading.</li>
+    </ul>
+  </div>
+
+  <h3>Before Day 4</h3>
+  <p>If you want to practise: take three topics from the list above, and for each, write two arguments <em>for</em> and two <em>against</em> in German. Practise defending whichever side you find harder.</p>
+</section>
+
+<footer>
+  <p>Day 3 complete. Say <strong>“next”</strong> to move on to <strong>Day 4 — Speaking Part 3</strong> (<span class="de">Gemeinsam etwas planen</span>: planning something together with your partner and actually reaching a decision), or ask any questions about the discussion first.</p>
+</footer>
+
+</div>
+</body>
+</html>
