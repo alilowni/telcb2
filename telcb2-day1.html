@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>telc Deutsch B2 — Day 1: Writing (Schriftlicher Ausdruck)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121311;
+  --bg-deep:#0d0e0c;
+  --panel:#1a1b18;
+  --panel-2:#1f201c;
+  --line:#2c2e28;
+  --line-soft:#24261f;
+  --text:#e9e5da;
+  --text-dim:#a8a294;
+  --text-faint:#7d786c;
+  --accent:#c9a961;
+  --accent-dim:#8a7440;
+  --sage:#8fa583;
+  --rose:#c08b7d;
+  --radius:3px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,169,97,0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(143,165,131,0.04), transparent 70%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:'Karla', sans-serif;
+  font-size:17px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 32px 120px;}
+
+/* ---------- Header ---------- */
+header{
+  padding:72px 0 48px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:56px;
+}
+.eyebrow{
+  font-size:12px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:22px;
+}
+h1{
+  font-family:'Newsreader',serif;
+  font-weight:400;
+  font-size:clamp(38px,6vw,58px);
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin-bottom:14px;
+}
+h1 em{font-style:italic;color:var(--accent);}
+.subtitle{color:var(--text-dim);font-size:19px;max-width:60ch;font-weight:300;}
+
+/* ---------- Day tracker ---------- */
+.tracker{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap;}
+.day-chip{
+  flex:1;min-width:150px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:12px 14px;
+  background:var(--panel);
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+a.day-chip:hover{border-color:var(--accent-dim);}
+.day-chip.active{border-color:var(--accent-dim);background:rgba(201,169,97,0.07);}
+.day-chip .n{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);}
+.day-chip.active .n{color:var(--accent);}
+.day-chip .t{font-size:14px;color:var(--text-dim);margin-top:3px;}
+.day-chip.active .t{color:var(--text);}
+
+/* ---------- Sections ---------- */
+section{margin-bottom:72px;scroll-margin-top:30px;}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;
+  padding-bottom:14px;border-bottom:1px solid var(--line-soft);}
+.sec-num{
+  font-family:'Newsreader',serif;font-size:15px;color:var(--accent);
+  font-weight:500;letter-spacing:0.08em;flex-shrink:0;
+}
+h2{font-family:'Newsreader',serif;font-weight:400;font-size:31px;line-height:1.25;letter-spacing:-0.01em;}
+h3{
+  font-family:'Karla',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);
+  margin:38px 0 14px;
+}
+h4{font-family:'Newsreader',serif;font-size:21px;font-weight:500;margin:28px 0 10px;}
+p{margin-bottom:16px;color:var(--text-dim);}
+p.lead{color:var(--text);font-size:19px;font-weight:300;}
+strong{color:var(--text);font-weight:600;}
+
+/* ---------- German text styling ---------- */
+.de{color:var(--text);font-weight:500;}
+.en{color:var(--text-faint);font-style:italic;font-size:15px;}
+
+/* ---------- Lists ---------- */
+ul,ol{margin:0 0 20px 0;padding-left:0;list-style:none;}
+li{color:var(--text-dim);margin-bottom:11px;padding-left:24px;position:relative;}
+li::before{content:"—";position:absolute;left:0;color:var(--accent-dim);}
+ol{counter-reset:c;}
+ol li::before{counter-increment:c;content:counter(c) ".";font-size:14px;color:var(--accent-dim);top:1px;}
+
+/* ---------- Panels ---------- */
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px 28px;
+  margin:24px 0;
+}
+.panel-title{
+  font-size:12px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--text-faint);margin-bottom:16px;font-weight:600;
+}
+.callout{border-left:2px solid var(--accent);padding-left:22px;margin:26px 0;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---------- Fact grid ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);margin:28px 0;overflow:hidden;}
+.fact{background:var(--panel);padding:20px 22px;}
+.fact .k{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;}
+.fact .v{font-family:'Newsreader',serif;font-size:26px;color:var(--text);line-height:1.2;}
+.fact .v small{font-size:14px;color:var(--text-dim);font-family:'Karla',sans-serif;display:block;margin-top:4px;}
+
+/* ---------- Table ---------- */
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;}
+th{
+  text-align:left;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text-faint);font-weight:600;padding:0 14px 12px 0;border-bottom:1px solid var(--line);
+}
+td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line-soft);color:var(--text-dim);vertical-align:top;}
+td:first-child{color:var(--text);width:34%;}
+
+/* ---------- Phrase blocks ---------- */
+.phrase{
+  padding:15px 0;border-bottom:1px solid var(--line-soft);
+}
+.phrase:last-child{border-bottom:none;padding-bottom:0;}
+.phrase .g{color:var(--text);font-size:17px;line-height:1.55;}
+.phrase .g::before{content:"„";color:var(--accent-dim);}
+.phrase .g::after{content:"“";color:var(--accent-dim);}
+.phrase .e{color:var(--text-faint);font-size:14.5px;font-style:italic;margin-top:4px;line-height:1.5;}
+.tag{
+  display:inline-block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent-dim);border-radius:2px;
+  padding:2px 8px;margin-bottom:9px;
+}
+
+/* ---------- Model letter ---------- */
+.letter{
+  background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 34px;margin:24px 0;
+  font-family:'Newsreader',serif;font-size:17.5px;line-height:1.8;color:var(--text);
+}
+.letter p{color:var(--text);margin-bottom:15px;}
+.letter .anno{
+  display:block;font-family:'Karla',sans-serif;font-size:10.5px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--accent-dim);margin-bottom:5px;
+}
+.letter .sub{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:20px;}
+
+/* ---------- Timeline ---------- */
+.timeline{margin:26px 0;}
+.tl-row{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-soft);}
+.tl-row:last-child{border-bottom:none;}
+.tl-time{
+  font-family:'Newsreader',serif;font-size:19px;color:var(--accent);
+  flex-shrink:0;width:88px;line-height:1.4;
+}
+.tl-body{color:var(--text-dim);font-size:15.5px;}
+.tl-body b{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:16px;}
+
+/* ---------- Mistakes ---------- */
+.mistake{padding:14px 0;border-bottom:1px solid var(--line-soft);}
+.mistake:last-child{border-bottom:none;}
+.mistake .bad{color:var(--rose);font-size:15.5px;}
+.mistake .bad::before{content:"✕  ";font-size:13px;}
+.mistake .fix{color:var(--sage);font-size:15.5px;margin-top:4px;}
+.mistake .fix::before{content:"✓  ";font-size:13px;}
+
+/* ---------- Recap ---------- */
+.recap{
+  border:1px solid var(--accent-dim);border-radius:var(--radius);
+  background:rgba(201,169,97,0.04);padding:32px 34px;
+}
+.recap ul li::before{content:"·";color:var(--accent);font-size:20px;top:-3px;}
+
+footer{
+  margin-top:80px;padding-top:32px;border-top:1px solid var(--line);
+  color:var(--text-faint);font-size:14.5px;
+}
+footer strong{color:var(--accent);}
+
+@media(max-width:640px){
+  body{font-size:16px;}
+  .wrap{padding:0 20px 80px;}
+  .sec-head{flex-direction:column;gap:6px;}
+  .tl-row{flex-direction:column;gap:4px;}
+  .tl-time{width:auto;}
+  td:first-child{width:auto;}
+  table,thead,tbody,th,td,tr{display:block;}
+  th{display:none;}
+  td{border-bottom:none;padding:2px 0;}
+  tr{border-bottom:1px solid var(--line-soft);padding:14px 0;display:block;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none;">telc Deutsch B2</a> · Day 1 of 4</div>
+  <h1>Schriftlicher Ausdruck<br><em>The Writing Part</em></h1>
+  <p class="subtitle">One letter. Thirty minutes. Forty-five points. This is the most predictable part of the whole exam — and the easiest one to prepare mechanically.</p>
+
+  <div class="tracker">
+    <a class="day-chip active" href="telcb2-day1.html"><div class="n">Day 1</div><div class="t">Writing</div></a>
+    <a class="day-chip" href="telcb2-day2.html"><div class="n">Day 2</div><div class="t">Speaking · Part 1</div></a>
+    <a class="day-chip" href="telcb2-day3.html"><div class="n">Day 3</div><div class="t">Speaking · Part 2</div></a>
+    <a class="day-chip" href="telcb2-day4.html"><div class="n">Day 4</div><div class="t">Speaking · Part 3</div></a>
+  </div>
+</header>
+
+<!-- ============ 1. INTRO ============ -->
+<section id="intro">
+  <div class="sec-head"><div class="sec-num">01</div><h2>Introduction</h2></div>
+
+  <p class="lead">Today we cover the <span class="de">Schriftlicher Ausdruck</span> — the writing section of the written exam.</p>
+
+  <p>You write <strong>one</strong> semi-formal letter or e-mail in reaction to a short advertisement (<span class="de">Anzeige</span>). You get two prompts and choose one. Almost always, one is a <strong>request for information</strong> (<span class="de">Anfrage / Bitte um Information</span>) and the other is a <strong>complaint</strong> (<span class="de">Beschwerde</span>).</p>
+
+  <h3>Why this part matters</h3>
+
+  <p>Writing is worth 45 of the 300 total points — 15% of the exam. That sounds small, but two things make it disproportionately important:</p>
+
+  <ul>
+    <li><strong>The written block must reach 60% on its own.</strong> You need 135 of 225 points across reading, language elements, listening and writing. The blocks do not compensate each other. Writing is where you can most reliably grab points.</li>
+    <li><strong>It is the only part you can fully rehearse.</strong> Reading and listening throw unknown texts at you. In writing, you already know the structure of the answer before you walk in. About 60% of a good letter is a skeleton you can prepare in advance.</li>
+  </ul>
+
+  <div class="callout">
+    <p>Think of it this way: reading and listening test your German. Writing tests whether you have <em>prepared</em>. Candidates who lose points here almost always lose them on structure and formality — not on grammar.</p>
+  </div>
+</section>
+
+<!-- ============ 2. WHAT WE LEARN ============ -->
+<section id="goals">
+  <div class="sec-head"><div class="sec-num">02</div><h2>What we're going to learn today</h2></div>
+
+  <p>By the end of this lesson you will be able to:</p>
+
+  <ol>
+    <li>Describe the exact task format and know how the 45 points are awarded.</li>
+    <li>Decide between task A and task B in under two minutes.</li>
+    <li>Write a fixed six-block structure that works for both letter types.</li>
+    <li>Use around 40 ready-made German phrases that fit any topic.</li>
+    <li>Handle the <span class="de">Leitpunkte</span> (content points) the way the raters expect.</li>
+    <li>Manage the 30 minutes without running out of time.</li>
+  </ol>
+
+  <h3>Today's goal in one sentence</h3>
+  <p class="lead">Leave with a reusable letter skeleton you can fill with any topic, and know exactly what the two raters are ticking off.</p>
+</section>
+
+<!-- ============ 3. MAIN LESSON ============ -->
+<section id="lesson">
+  <div class="sec-head"><div class="sec-num">03</div><h2>The main lesson</h2></div>
+
+  <h3>The hard facts</h3>
+
+  <div class="facts">
+    <div class="fact"><div class="k">Time</div><div class="v">30<small>minutes</small></div></div>
+    <div class="fact"><div class="k">Length</div><div class="v">150+<small>words minimum</small></div></div>
+    <div class="fact"><div class="k">Points</div><div class="v">45<small>of 300 total</small></div></div>
+    <div class="fact"><div class="k">Tasks</div><div class="v">1 of 2<small>you choose</small></div></div>
+  </div>
+
+  <p>You are given a short advertisement plus two task options. Each option lists <strong>four Leitpunkte</strong> (content points). You must deal with <strong>three of them</strong> — or two of them plus one relevant point of your own. There is no official maximum length, but 150–200 words is the sweet spot. Longer texts mostly add errors.</p>
+
+  <h4>The two task types</h4>
+
+  <table>
+    <thead><tr><th>Type</th><th>What you're doing</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="de">Anfrage / Bitte um Information</span><br><span class="en">Request for information</span></td>
+        <td>You saw an ad (language course, trip, fitness studio, event, apartment) and you want details. You explain your situation, ask precise questions, and request a reply.</td>
+      </tr>
+      <tr>
+        <td><span class="de">Beschwerde</span><br><span class="en">Complaint</span></td>
+        <td>You booked or bought something and it did not match the advertisement. You describe the problem, explain the consequence, and demand a concrete solution.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Topics that come back again and again</h4>
+
+  <p>The exam does not publish a topic list, but prep schools and past candidates report the same scenarios repeatedly. Prepare vocabulary for these:</p>
+
+  <ul>
+    <li><strong>Hotel / accommodation</strong> — dirty room, noise, missing breakfast, no air conditioning, wrong room category</li>
+    <li><strong>Online orders</strong> — wrong size or colour, damaged goods, late delivery, missing parts (bicycle, vacuum cleaner, coffee machine, furniture)</li>
+    <li><strong>Courses</strong> — language course, cooking course, computer course: group too large, teacher changed, course cancelled</li>
+    <li><strong>Travel</strong> — trip did not match the brochure, excursions cancelled, bad organisation</li>
+    <li><strong>Fitness studio / swimming pool / sauna</strong> — broken equipment, overcrowding, unclear contract</li>
+    <li><strong>Restaurant / event</strong> — poor service, cancelled concert or festival</li>
+  </ul>
+
+  <p>Notice the pattern: <strong>advertisement promised X, reality was Y.</strong> Every complaint letter is that one sentence, expanded.</p>
+
+  <h3>How you are scored</h3>
+
+  <p>Two licensed raters grade your text on three criteria. Each is graded A / B / C / D, the points are added (maximum 15), then <strong>multiplied by 3</strong> to reach 45.</p>
+
+  <table>
+    <thead><tr><th>Criterion</th><th>What it actually means</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="de">Berücksichtigung der Leitpunkte</span><br><span class="en">Task fulfilment</span></td>
+        <td>Did you handle three content points, and did you give each one <em>more than a single clause</em>? One sentence per point is a weak answer. Two to three sentences is a good one.</td>
+      </tr>
+      <tr>
+        <td><span class="de">Kommunikative Gestaltung</span><br><span class="en">Communicative design</span></td>
+        <td>Does it look and sound like a real letter? Subject line, correct salutation, logical paragraphs, connectors, consistent formal register, proper closing formula.</td>
+      </tr>
+      <tr>
+        <td><span class="de">Formale Richtigkeit</span><br><span class="en">Formal accuracy</span></td>
+        <td>Grammar, vocabulary, spelling. The key threshold is not perfection — it is whether errors <em>block understanding</em>. A text that reads smoothly on first reading scores well even with small mistakes.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>The most important consequence:</strong> two of the three criteria have nothing to do with your grammar level. Structure and task handling are worth two-thirds of the score, and both are fully controllable in advance.</p>
+  </div>
+
+  <h3>The six-block skeleton</h3>
+
+  <p>Use this same architecture for both task types. Only the middle changes.</p>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-time">1</div><div class="tl-body"><b>Betreff — subject line</b>Short, concrete, includes what and when. Never skip it.</div></div>
+    <div class="tl-row"><div class="tl-time">2</div><div class="tl-body"><b>Anrede — salutation</b><span class="de">Sehr geehrte Damen und Herren,</span> then a comma, then start the next line with a <em>lowercase</em> letter.</div></div>
+    <div class="tl-row"><div class="tl-time">3</div><div class="tl-body"><b>Einleitung — opening</b>One or two sentences: who you are, what you booked/saw, and why you are writing.</div></div>
+    <div class="tl-row"><div class="tl-time">4</div><div class="tl-body"><b>Hauptteil — body</b>Your three Leitpunkte, one short paragraph each, in a logical order.</div></div>
+    <div class="tl-row"><div class="tl-time">5</div><div class="tl-body"><b>Forderung / Bitte — your request</b>What you want them to do, and by when. This is what makes the letter feel finished.</div></div>
+    <div class="tl-row"><div class="tl-time">6</div><div class="tl-body"><b>Schlussformel — closing</b><span class="de">Mit freundlichen Grüßen</span> + your name. No comma after it.</div></div>
+  </div>
+
+  <h4>A model complaint letter</h4>
+
+  <p>Read this and notice how mechanical it is. The topic is invented; the architecture is fixed.</p>
+
+  <div class="letter">
+    <div class="sub">
+      <span class="anno">Betreff</span>
+      Beschwerde über die Sprachreise nach Valencia vom 3. bis 17. Juli
+    </div>
+
+    <span class="anno">Anrede</span>
+    <p>Sehr geehrte Damen und Herren,</p>
+
+    <span class="anno">Einleitung — reason for writing</span>
+    <p>vor drei Wochen habe ich über Ihr Reisebüro eine zweiwöchige Sprachreise nach Valencia gebucht. Leider muss ich Ihnen mitteilen, dass ich mit dem Verlauf der Reise überhaupt nicht zufrieden war.</p>
+
+    <span class="anno">Leitpunkt 1 + 2 — the problems</span>
+    <p>In Ihrer Anzeige haben Sie einen Intensivkurs mit höchstens acht Teilnehmern versprochen. Tatsächlich saßen wir jedoch zu achtzehnt in einem Raum, sodass der Lehrer kaum auf einzelne Fragen eingehen konnte. Darüber hinaus lag die Unterkunft nicht, wie angekündigt, in der Nähe der Schule, sondern etwa eine Stunde mit dem Bus entfernt.</p>
+
+    <span class="anno">Leitpunkt 3 — the consequence</span>
+    <p>Dadurch habe ich jeden Tag wertvolle Lernzeit verloren. Der eigentliche Zweck meiner Reise, nämlich mein Spanisch für den Beruf zu verbessern, wurde auf diese Weise nicht erreicht. Sie können sich sicher vorstellen, wie enttäuscht ich war.</p>
+
+    <span class="anno">Forderung — the demand</span>
+    <p>Aus diesem Grund bitte ich Sie, mir die Hälfte des Reisepreises zurückzuerstatten. Ich wäre Ihnen sehr dankbar, wenn Sie mir bis zum 30. September schriftlich antworten würden.</p>
+
+    <span class="anno">Schlussformel</span>
+    <p>Mit freundlichen Grüßen<br>Anna Kowalska</p>
+  </div>
+
+  <p>That is roughly 175 words and took six sentences of real content. Everything else was formula.</p>
+
+  <h4>Grammar that impresses raters (and is easy)</h4>
+
+  <p>You do not need complicated German. You need three or four structures used correctly:</p>
+
+  <ul>
+    <li><strong>Konjunktiv II for politeness</strong> — <span class="de">Ich wäre Ihnen dankbar, wenn …</span> / <span class="de">Könnten Sie mir bitte mitteilen, ob …</span></li>
+    <li><strong>Passive for objectivity</strong> — <span class="de">Das Zimmer wurde nicht gereinigt.</span> <span class="en">(The room was not cleaned.)</span></li>
+    <li><strong>Indirect questions</strong> — <span class="de">Ich möchte wissen, ob / wie viel / wann …</span></li>
+    <li><strong>Connectors beyond <em>und/aber</em></strong> — <span class="de">außerdem, darüber hinaus, allerdings, jedoch, deshalb, aus diesem Grund, dadurch, obwohl</span></li>
+  </ul>
+</section>
+
+<!-- ============ 4. PREFAB ============ -->
+<section id="phrases">
+  <div class="sec-head"><div class="sec-num">04</div><h2>Ready-made phrases (Redemittel)</h2></div>
+
+  <p>Learn these as building blocks, not as a whole memorised letter. Raters can tell when a text was learned by heart — but nobody can tell that you knew your opening formula in advance, because every real letter uses one.</p>
+
+  <div class="panel">
+    <div class="panel-title">Opening — why you are writing</div>
+    <div class="phrase"><span class="tag">Anfrage</span>
+      <div class="g">mit großem Interesse habe ich Ihre Anzeige in der Zeitung gelesen.</div>
+      <div class="e">I read your advertisement in the newspaper with great interest.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">ich schreibe Ihnen, weil ich einige Fragen zu Ihrem Angebot habe.</div>
+      <div class="e">I'm writing because I have some questions about your offer.</div>
+    </div>
+    <div class="phrase"><span class="tag">Beschwerde</span>
+      <div class="g">vor zwei Wochen habe ich bei Ihnen … gebucht / bestellt.</div>
+      <div class="e">Two weeks ago I booked / ordered … with you.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">leider muss ich Ihnen mitteilen, dass ich mit … sehr unzufrieden bin.</div>
+      <div class="e">Unfortunately I have to inform you that I'm very dissatisfied with …</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Describing the problem</div>
+    <div class="phrase">
+      <div class="g">In Ihrer Anzeige haben Sie … versprochen. Tatsächlich war es jedoch anders.</div>
+      <div class="e">In your advertisement you promised … In reality, however, it was different.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Das Zimmer entsprach überhaupt nicht der Beschreibung.</div>
+      <div class="e">The room did not match the description at all.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Darüber hinaus funktionierte die Heizung während des gesamten Aufenthalts nicht.</div>
+      <div class="e">Furthermore, the heating did not work during the entire stay.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Statt der bestellten Größe M habe ich Größe S erhalten.</div>
+      <div class="e">Instead of the size M I ordered, I received size S.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Explaining the consequence — the point most candidates skip</div>
+    <div class="phrase">
+      <div class="g">Dadurch habe ich viel Zeit und Geld verloren.</div>
+      <div class="e">As a result, I lost a lot of time and money.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Sie können sich sicher vorstellen, wie enttäuscht ich war.</div>
+      <div class="e">You can surely imagine how disappointed I was.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Aus diesem Grund konnte ich den Kurs nicht wie geplant besuchen.</div>
+      <div class="e">For this reason I could not attend the course as planned.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Asking questions (Anfrage)</div>
+    <div class="phrase">
+      <div class="g">Könnten Sie mir bitte mitteilen, wie viel der Kurs insgesamt kostet?</div>
+      <div class="e">Could you please tell me how much the course costs in total?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Außerdem würde mich interessieren, ob eine Unterkunft im Preis enthalten ist.</div>
+      <div class="e">I would also be interested to know whether accommodation is included in the price.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Wäre es möglich, den Termin später zu verschieben?</div>
+      <div class="e">Would it be possible to move the appointment to a later date?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Eine weitere Frage betrifft die Gruppengröße.</div>
+      <div class="e">A further question concerns the group size.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Your demand / request</div>
+    <div class="phrase">
+      <div class="g">Deshalb bitte ich Sie, mir den vollen Betrag zurückzuerstatten.</div>
+      <div class="e">I therefore ask you to refund me the full amount.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich erwarte von Ihnen eine angemessene Entschädigung.</div>
+      <div class="e">I expect appropriate compensation from you.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich wäre Ihnen dankbar, wenn Sie mir bis zum 15. Mai antworten würden.</div>
+      <div class="e">I would be grateful if you replied to me by 15 May.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Für eine schnelle Rückmeldung wäre ich Ihnen sehr dankbar.</div>
+      <div class="e">I would be very grateful for a quick response.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Closing</div>
+    <div class="phrase">
+      <div class="g">Vielen Dank im Voraus für Ihre Bemühungen.</div>
+      <div class="e">Thank you in advance for your efforts.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich freue mich auf Ihre Antwort.</div>
+      <div class="e">I look forward to your reply.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Mit freundlichen Grüßen</div>
+      <div class="e">Yours sincerely — the standard formal closing. No comma after it.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Connectors — sprinkle these through the body</div>
+    <p style="margin-bottom:0"><span class="de">außerdem</span> <span class="en">(besides)</span> · <span class="de">darüber hinaus</span> <span class="en">(furthermore)</span> · <span class="de">allerdings</span> <span class="en">(however)</span> · <span class="de">jedoch</span> <span class="en">(however)</span> · <span class="de">deshalb / aus diesem Grund</span> <span class="en">(therefore)</span> · <span class="de">dadurch</span> <span class="en">(as a result)</span> · <span class="de">obwohl</span> <span class="en">(although)</span> · <span class="de">statt</span> <span class="en">(instead of)</span> · <span class="de">zunächst</span> <span class="en">(first of all)</span> · <span class="de">schließlich</span> <span class="en">(finally)</span></p>
+  </div>
+</section>
+
+<!-- ============ 5. TIPS ============ -->
+<section id="tips">
+  <div class="sec-head"><div class="sec-num">05</div><h2>Exam tips</h2></div>
+
+  <h3>Time management — 30 minutes</h3>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-time">0–3</div><div class="tl-body"><b>Read and choose</b>Read the ad and both tasks. Pick the one whose vocabulary you know better. Decide fast and never look back.</div></div>
+    <div class="tl-row"><div class="tl-time">3–7</div><div class="tl-body"><b>Plan</b>Mark the three Leitpunkte you'll use. Write 2–3 keywords next to each. Do not write full sentences yet.</div></div>
+    <div class="tl-row"><div class="tl-time">7–25</div><div class="tl-body"><b>Write</b>Straight through, following the six-block skeleton. Don't stop to polish.</div></div>
+    <div class="tl-row"><div class="tl-time">25–30</div><div class="tl-body"><b>Check</b>Verb position, capital letters on nouns, <span class="de">Sie</span> forms, and that the salutation and closing are both there.</div></div>
+  </div>
+
+  <h3>What the raters are looking for</h3>
+  <ul>
+    <li>Three content points, each developed with more than one clause</li>
+    <li>A text that is <strong>understandable on the first reading</strong></li>
+    <li>Consistent formal register — <span class="de">Sie</span> from first word to last</li>
+    <li>Visible letter features: subject, salutation, paragraphs, closing</li>
+    <li>Variety in connectors and sentence openings</li>
+  </ul>
+
+  <h3>Common mistakes to avoid</h3>
+
+  <div class="panel">
+    <div class="mistake">
+      <div class="bad">No <span class="de">Betreff</span>, or a vague one like <span class="de">„Problem“</span>.</div>
+      <div class="fix"><span class="de">Beschwerde über die Buchung Nr. 4517 vom 12. März</span> — concrete and dated.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Starting with <span class="de">Hallo</span> or <span class="de">Liebe Firma</span>.</div>
+      <div class="fix"><span class="de">Sehr geehrte Damen und Herren,</span> — the safe default when you don't know the name.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Slipping into <span class="de">du</span> halfway through.</div>
+      <div class="fix">Capital <span class="de">Sie / Ihnen / Ihr</span> throughout. Check this specifically in your final read.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Writing an angry complaint: <span class="de">Das ist eine Katastrophe!</span></div>
+      <div class="fix">Cool, factual, solution-focused: problem → consequence → demand. Politeness scores; emotion doesn't.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Squeezing all four Leitpunkte in with one sentence each.</div>
+      <div class="fix">Three points, two to three sentences each. Depth over coverage.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Reciting a whole memorised letter that barely fits the prompt.</div>
+      <div class="fix">Memorise the frame (opening, connectors, closing). Write the content fresh.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Writing 300 words to look impressive.</div>
+      <div class="fix">150–200 words. Every extra sentence is another chance to make an error.</div>
+    </div>
+  </div>
+
+  <h3>Three quick practical tips</h3>
+  <ul>
+    <li><strong>Count words once.</strong> Count the words in three of your handwritten lines, take the average, multiply by your number of lines. Don't count word by word.</li>
+    <li><strong>Leave a blank line between paragraphs.</strong> Visual structure is part of <span class="de">Kommunikative Gestaltung</span> and costs nothing.</li>
+    <li><strong>If you're taking the digital version</strong>, practise typing German on the keyboard layout you'll actually have — including <span class="de">ä ö ü ß</span>. Writing by hand and typing are not the same speed.</li>
+  </ul>
+</section>
+
+<!-- ============ 6. RECAP ============ -->
+<section id="recap">
+  <div class="sec-head"><div class="sec-num">06</div><h2>Recap</h2></div>
+
+  <div class="recap">
+    <h4 style="margin-top:0">The format</h4>
+    <ul>
+      <li>One semi-formal letter responding to an ad; choose 1 of 2 tasks</li>
+      <li>Usually <span class="de">Anfrage</span> (request) vs <span class="de">Beschwerde</span> (complaint)</li>
+      <li>Four Leitpunkte given — handle <strong>three</strong>, properly</li>
+      <li>Minimum 150 words · 30 minutes · 45 points</li>
+    </ul>
+
+    <h4>The scoring</h4>
+    <ul>
+      <li><span class="de">Berücksichtigung der Leitpunkte</span> — did you cover the points, in depth</li>
+      <li><span class="de">Kommunikative Gestaltung</span> — does it look and sound like a letter</li>
+      <li><span class="de">Formale Richtigkeit</span> — do errors block understanding</li>
+      <li>Two of three criteria are about structure, not grammar</li>
+    </ul>
+
+    <h4>The skeleton to remember</h4>
+    <ul>
+      <li>Betreff → Anrede → Einleitung → Hauptteil (3 points) → Forderung → Schlussformel</li>
+    </ul>
+
+    <h4>The single most useful habit</h4>
+    <ul>
+      <li>Spend the first 7 minutes choosing and planning. Candidates who start writing immediately are the ones who run out of time and forget the closing.</li>
+    </ul>
+  </div>
+
+  <h3>Before Day 2</h3>
+  <p>If you want to practise: write one complaint letter about a hotel and one request for information about a language course, both in 30 minutes, both 150–200 words. Use the six-block skeleton exactly as it is here.</p>
+</section>
+
+<footer>
+  <p>Day 1 complete. Say <strong>“next”</strong> to move on to <strong>Day 2 — Speaking Part 1</strong> (<span class="de">Über Erfahrungen sprechen</span>, the prepared topic talk with the fixed list of seven topics), or ask any questions about the writing part first.</p>
+</footer>
+
+</div>
+</body>
+</html>

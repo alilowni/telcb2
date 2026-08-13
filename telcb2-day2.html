@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>telc Deutsch B2 — Day 2: Speaking Part 1 (Über Erfahrungen sprechen)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121311;
+  --bg-deep:#0d0e0c;
+  --panel:#1a1b18;
+  --panel-2:#1f201c;
+  --line:#2c2e28;
+  --line-soft:#24261f;
+  --text:#e9e5da;
+  --text-dim:#a8a294;
+  --text-faint:#7d786c;
+  --accent:#c9a961;
+  --accent-dim:#8a7440;
+  --sage:#8fa583;
+  --rose:#c08b7d;
+  --radius:3px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,169,97,0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(143,165,131,0.04), transparent 70%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:'Karla', sans-serif;
+  font-size:17px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 32px 120px;}
+
+header{padding:72px 0 48px;border-bottom:1px solid var(--line);margin-bottom:56px;}
+.eyebrow{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px;}
+h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,6vw,58px);line-height:1.1;letter-spacing:-0.015em;margin-bottom:14px;}
+h1 em{font-style:italic;color:var(--accent);}
+.subtitle{color:var(--text-dim);font-size:19px;max-width:60ch;font-weight:300;}
+
+.tracker{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap;}
+.day-chip{flex:1;min-width:150px;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;background:var(--panel);text-decoration:none;color:inherit;display:block;}
+a.day-chip:hover{border-color:var(--accent-dim);}
+.day-chip.active{border-color:var(--accent-dim);background:rgba(201,169,97,0.07);}
+.day-chip.done{opacity:0.55;}
+.day-chip .n{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);}
+.day-chip.active .n{color:var(--accent);}
+.day-chip .t{font-size:14px;color:var(--text-dim);margin-top:3px;}
+.day-chip.active .t{color:var(--text);}
+
+section{margin-bottom:72px;scroll-margin-top:30px;}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line-soft);}
+.sec-num{font-family:'Newsreader',serif;font-size:15px;color:var(--accent);font-weight:500;letter-spacing:0.08em;flex-shrink:0;}
+h2{font-family:'Newsreader',serif;font-weight:400;font-size:31px;line-height:1.25;letter-spacing:-0.01em;}
+h3{font-family:'Karla',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px;}
+h4{font-family:'Newsreader',serif;font-size:21px;font-weight:500;margin:28px 0 10px;}
+p{margin-bottom:16px;color:var(--text-dim);}
+p.lead{color:var(--text);font-size:19px;font-weight:300;}
+strong{color:var(--text);font-weight:600;}
+
+.de{color:var(--text);font-weight:500;}
+.en{color:var(--text-faint);font-style:italic;font-size:15px;}
+
+ul,ol{margin:0 0 20px 0;padding-left:0;list-style:none;}
+li{color:var(--text-dim);margin-bottom:11px;padding-left:24px;position:relative;}
+li::before{content:"—";position:absolute;left:0;color:var(--accent-dim);}
+ol{counter-reset:c;}
+ol li::before{counter-increment:c;content:counter(c) ".";font-size:14px;color:var(--accent-dim);top:1px;}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin:24px 0;}
+.panel-title{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:16px;font-weight:600;}
+.callout{border-left:2px solid var(--accent);padding-left:22px;margin:26px 0;}
+.callout p:last-child{margin-bottom:0;}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);margin:28px 0;overflow:hidden;}
+.fact{background:var(--panel);padding:20px 22px;}
+.fact .k{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;}
+.fact .v{font-family:'Newsreader',serif;font-size:26px;color:var(--text);line-height:1.2;}
+.fact .v small{font-size:14px;color:var(--text-dim);font-family:'Karla',sans-serif;display:block;margin-top:4px;}
+
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;}
+th{text-align:left;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);font-weight:600;padding:0 14px 12px 0;border-bottom:1px solid var(--line);}
+td{padding:14px 14px 14px 0;border-bottom:1px solid var(--line-soft);color:var(--text-dim);vertical-align:top;}
+td:first-child{color:var(--text);width:34%;}
+
+.phrase{padding:15px 0;border-bottom:1px solid var(--line-soft);}
+.phrase:last-child{border-bottom:none;padding-bottom:0;}
+.phrase .g{color:var(--text);font-size:17px;line-height:1.55;}
+.phrase .g::before{content:"„";color:var(--accent-dim);}
+.phrase .g::after{content:"“";color:var(--accent-dim);}
+.phrase .e{color:var(--text-faint);font-size:14.5px;font-style:italic;margin-top:4px;line-height:1.5;}
+.tag{display:inline-block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);border-radius:2px;padding:2px 8px;margin-bottom:9px;}
+
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);margin:26px 0;overflow:hidden;}
+.topic{background:var(--panel);padding:20px 22px;}
+.topic .num{font-family:'Newsreader',serif;font-size:13px;color:var(--accent-dim);}
+.topic .de-t{font-family:'Newsreader',serif;font-size:20px;color:var(--text);margin:2px 0 3px;}
+.topic .en-t{font-size:13px;color:var(--text-faint);font-style:italic;margin-bottom:10px;}
+.topic .pts{font-size:14px;color:var(--text-dim);line-height:1.6;}
+
+.speech{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--radius);padding:32px 34px;margin:24px 0;font-family:'Newsreader',serif;font-size:17.5px;line-height:1.8;color:var(--text);}
+.speech p{color:var(--text);margin-bottom:15px;}
+.speech .anno{display:block;font-family:'Karla',sans-serif;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:5px;}
+
+.notes{background:var(--bg-deep);border:1px dashed var(--line);border-radius:var(--radius);padding:24px 28px;margin:22px 0;font-family:'Karla',sans-serif;font-size:15.5px;line-height:2;color:var(--text-dim);}
+.notes b{color:var(--text);font-weight:600;}
+
+.timeline{margin:26px 0;}
+.tl-row{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-soft);}
+.tl-row:last-child{border-bottom:none;}
+.tl-time{font-family:'Newsreader',serif;font-size:19px;color:var(--accent);flex-shrink:0;width:98px;line-height:1.4;}
+.tl-body{color:var(--text-dim);font-size:15.5px;}
+.tl-body b{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:16px;}
+
+.mistake{padding:14px 0;border-bottom:1px solid var(--line-soft);}
+.mistake:last-child{border-bottom:none;}
+.mistake .bad{color:var(--rose);font-size:15.5px;}
+.mistake .bad::before{content:"✕  ";font-size:13px;}
+.mistake .fix{color:var(--sage);font-size:15.5px;margin-top:4px;}
+.mistake .fix::before{content:"✓  ";font-size:13px;}
+
+.recap{border:1px solid var(--accent-dim);border-radius:var(--radius);background:rgba(201,169,97,0.04);padding:32px 34px;}
+.recap ul li::before{content:"·";color:var(--accent);font-size:20px;top:-3px;}
+
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--text-faint);font-size:14.5px;}
+footer strong{color:var(--accent);}
+
+@media(max-width:640px){
+  body{font-size:16px;}
+  .wrap{padding:0 20px 80px;}
+  .sec-head{flex-direction:column;gap:6px;}
+  .tl-row{flex-direction:column;gap:4px;}
+  .tl-time{width:auto;}
+  table,thead,tbody,th,td,tr{display:block;}
+  th{display:none;}
+  td{border-bottom:none;padding:2px 0;}
+  td:first-child{width:auto;}
+  tr{border-bottom:1px solid var(--line-soft);padding:14px 0;display:block;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none;">telc Deutsch B2</a> · Day 2 of 4</div>
+  <h1>Über Erfahrungen sprechen<br><em>Speaking · Part 1</em></h1>
+  <p class="subtitle">A short prepared talk about a personal experience, followed by questions from your partner. The topic list is fixed and published — this is the one part of the exam you can prepare almost completely at home.</p>
+
+  <div class="tracker">
+    <a class="day-chip done" href="telcb2-day1.html"><div class="n">Day 1</div><div class="t">Writing ✓</div></a>
+    <a class="day-chip active" href="telcb2-day2.html"><div class="n">Day 2</div><div class="t">Speaking · Part 1</div></a>
+    <a class="day-chip" href="telcb2-day3.html"><div class="n">Day 3</div><div class="t">Speaking · Part 2</div></a>
+    <a class="day-chip" href="telcb2-day4.html"><div class="n">Day 4</div><div class="t">Speaking · Part 3</div></a>
+  </div>
+</header>
+
+<!-- 1. INTRO -->
+<section id="intro">
+  <div class="sec-head"><div class="sec-num">01</div><h2>Introduction</h2></div>
+
+  <p class="lead">Today we cover the first assessed part of the oral exam: <span class="de">Über Erfahrungen sprechen</span> — talking about an experience.</p>
+
+  <p>You choose one topic from a fixed list of seven, speak about it for roughly 90 seconds, and then your partner asks you a few questions about it. Later you do the same for your partner: you listen to their talk and ask <em>them</em> questions. Both halves are scored.</p>
+
+  <p>Many teachers and YouTube channels call this part <span class="de">„die Präsentation“</span>. That is an informal nickname — the official telc name is <span class="de">Über Erfahrungen sprechen</span>, and it matters, because this is not a formal presentation with structure and statistics. It is a personal story.</p>
+
+  <div class="callout">
+    <p><strong>Note on the warm-up.</strong> Before this part, the examiners will ask you to introduce yourself briefly (<span class="de">Einander kennenlernen</span> / <span class="de">Kontaktaufnahme</span>). In telc B2 this warm-up is <strong>not scored</strong>. Don't confuse it with telc B1, where introducing yourself <em>is</em> an assessed task.</p>
+  </div>
+
+  <h3>Why this part matters</h3>
+  <ul>
+    <li>It is worth <strong>25 of the 75 oral points</strong> — one third of your speaking grade.</li>
+    <li>The oral block must independently reach 60%, meaning <strong>45 of 75 points</strong>. There is no compensation from the written exam.</li>
+    <li>It is the <strong>first impression</strong> the two examiners get of your German. A confident, fluent opening changes how they hear everything you say afterwards.</li>
+    <li>Unlike Parts 2 and 3, the content is entirely under your control. You already know the seven possible topics.</li>
+  </ul>
+</section>
+
+<!-- 2. GOALS -->
+<section id="goals">
+  <div class="sec-head"><div class="sec-num">02</div><h2>What we're going to learn today</h2></div>
+
+  <p>By the end of this lesson you will be able to:</p>
+
+  <ol>
+    <li>Name all seven possible topics and the sub-points that come with each.</li>
+    <li>Build a five-part structure for a 90-second talk that works for any of them.</li>
+    <li>Write a keyword note sheet (<span class="de">Stichwortzettel</span>) instead of a script.</li>
+    <li>Ask your partner good follow-up questions — and answer theirs.</li>
+    <li>Understand the four criteria examiners score you on, and what each one rewards.</li>
+  </ol>
+
+  <h3>Today's goal in one sentence</h3>
+  <p class="lead">Walk out with one prepared talk for each of the seven topics, and a fixed frame you can drop any story into.</p>
+</section>
+
+<!-- 3. MAIN LESSON -->
+<section id="lesson">
+  <div class="sec-head"><div class="sec-num">03</div><h2>The main lesson</h2></div>
+
+  <h3>The hard facts</h3>
+
+  <div class="facts">
+    <div class="fact"><div class="k">Your talk</div><div class="v">~90s<small>monologue</small></div></div>
+    <div class="fact"><div class="k">Whole part</div><div class="v">~5 min<small>talk + questions</small></div></div>
+    <div class="fact"><div class="k">Points</div><div class="v">25<small>of 75 oral</small></div></div>
+    <div class="fact"><div class="k">Prep time</div><div class="v">20 min<small>for all 3 parts</small></div></div>
+  </div>
+
+  <p>You get 20 minutes of preparation before the oral exam, in a separate room, with the task sheets and paper for notes. That 20 minutes has to cover all three speaking parts. Since Part 1 can be prepared at home, <strong>spend no more than 4–5 minutes on it in the exam room</strong> and give the rest to Parts 2 and 3.</p>
+
+  <p>The oral exam is normally taken in <strong>pairs</strong> (sometimes groups of three) with <strong>two licensed examiners</strong>. The examiners mostly moderate — they are not your conversation partner. Your partner is.</p>
+
+  <h3>The seven topics</h3>
+
+  <p>The list was expanded from five to seven topics in October 2019. Older prep books may still show only five — this is the current set. Each topic comes with sub-points you are meant to touch on.</p>
+
+  <div class="topics">
+    <div class="topic">
+      <div class="num">01</div>
+      <div class="de-t">Eine Reise</div>
+      <div class="en-t">A trip</div>
+      <div class="pts">Destination, when, the country and its people, sights, why it stayed with you.</div>
+    </div>
+    <div class="topic">
+      <div class="num">02</div>
+      <div class="de-t">Ein Buch</div>
+      <div class="en-t">A book</div>
+      <div class="pts">Theme, author, what it is about, your opinion, who you'd recommend it to.</div>
+    </div>
+    <div class="topic">
+      <div class="num">03</div>
+      <div class="de-t">Ein Film</div>
+      <div class="en-t">A film</div>
+      <div class="pts">Plot, actors, genre, your opinion, what impressed you.</div>
+    </div>
+    <div class="topic">
+      <div class="num">04</div>
+      <div class="de-t">Ein Sportereignis</div>
+      <div class="en-t">A sports event</div>
+      <div class="pts">Which sport, where, who was there, the result, the atmosphere.</div>
+    </div>
+    <div class="topic">
+      <div class="num">05</div>
+      <div class="de-t">Eine Musikveranstaltung</div>
+      <div class="en-t">A music event</div>
+      <div class="pts">Genre, musicians, venue, audience, how you felt.</div>
+    </div>
+    <div class="topic">
+      <div class="num">06</div>
+      <div class="de-t">Eine wichtige Person im Leben</div>
+      <div class="en-t">An important person in your life</div>
+      <div class="pts">Who, how you met, when, why they matter to you.</div>
+    </div>
+    <div class="topic">
+      <div class="num">07</div>
+      <div class="de-t">Eine wichtige Erfahrung</div>
+      <div class="en-t">An important experience</div>
+      <div class="pts">What, when, where, with whom, why it was important.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Prepare all seven.</strong> Do not gamble on getting your favourite. Preparing seven 90-second talks sounds like a lot, but they share the same frame and about half the same phrases — realistically it is one evening of work plus repetition.</p>
+  </div>
+
+  <h3>The five-part frame</h3>
+
+  <p>Every talk, regardless of topic, follows the same shape:</p>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-time">1 · 10s</div><div class="tl-body"><b>Einstieg — announce the topic</b>Name your topic and say in one clause why you chose it. This buys you a confident start.</div></div>
+    <div class="tl-row"><div class="tl-time">2 · 20s</div><div class="tl-body"><b>Rahmen — set the scene</b>When, where, who with, how old you were. Concrete facts, no evaluation yet.</div></div>
+    <div class="tl-row"><div class="tl-time">3 · 30s</div><div class="tl-body"><b>Kern — the substance</b>What actually happened, what was difficult, what surprised you. This is where the detail lives.</div></div>
+    <div class="tl-row"><div class="tl-time">4 · 25s</div><div class="tl-body"><b>Bewertung — why it mattered</b>Your evaluation, justified. <em>This is the part candidates skip, and it's the part the task is actually asking for.</em></div></div>
+    <div class="tl-row"><div class="tl-time">5 · 5s</div><div class="tl-body"><b>Abschluss — hand over</b>A closing sentence that signals you're done, so nobody has to wonder.</div></div>
+  </div>
+
+  <p>Steps 1, 2 and 5 are almost entirely fixed phrases. Only steps 3 and 4 change with the topic — which is why seven talks is less work than it sounds.</p>
+
+  <h4>A model talk — <span class="de">Eine wichtige Erfahrung</span></h4>
+
+  <div class="speech">
+    <span class="anno">1 · Einstieg</span>
+    <p>Ich möchte euch heute von einer Erfahrung erzählen, die mein Leben ziemlich verändert hat: von meinem ersten Auslandssemester in Wien.</p>
+
+    <span class="anno">2 · Rahmen</span>
+    <p>Das war vor ungefähr vier Jahren, im Herbst. Ich war damals 21 Jahre alt und hatte vorher noch nie länger als zwei Wochen allein gelebt. Ich bin also mit zwei Koffern angekommen und kannte in der ganzen Stadt keinen einzigen Menschen.</p>
+
+    <span class="anno">3 · Kern</span>
+    <p>Am Anfang war es ehrlich gesagt ziemlich hart. In der Universität habe ich zwar alles verstanden, aber im Alltag habe ich mich oft nicht getraut zu sprechen. Besonders schwierig war für mich, dass ich abends allein in meinem Zimmer saß und niemanden hatte, mit dem ich reden konnte. Nach etwa einem Monat bin ich dann einem Laufverein beigetreten — und plötzlich ging alles viel schneller.</p>
+
+    <span class="anno">4 · Bewertung</span>
+    <p>Rückblickend würde ich sagen, dass diese Zeit die wichtigste Erfahrung meines Lebens war. Ich habe nämlich nicht nur die Sprache gelernt, sondern vor allem, dass ich mich auf mich selbst verlassen kann. Das hat mir seitdem in vielen Situationen geholfen.</p>
+
+    <span class="anno">5 · Abschluss</span>
+    <p>Deshalb kann ich jedem nur empfehlen, einmal für längere Zeit ins Ausland zu gehen. — Das war meine Erfahrung. Hast du dazu Fragen?</p>
+  </div>
+
+  <p class="en">In English: the speaker describes their first semester abroad in Vienna at 21, the loneliness of the first month, joining a running club, and concludes that the experience taught them self-reliance. Notice that roughly a third of the talk is evaluation, not events.</p>
+
+  <div class="callout">
+    <p><strong>You are allowed to invent.</strong> Nobody checks whether you really went to Vienna. If a true story is hard to tell in German, tell a simpler one you can tell well. Fluency is scored; biographical accuracy is not.</p>
+  </div>
+
+  <h3>Notes, not a script</h3>
+
+  <p>Reading aloud from full sentences destroys your intonation and is immediately obvious to examiners. Your note sheet should look like this:</p>
+
+  <div class="notes">
+    <b>WIEN — Auslandssemester</b><br>
+    vor 4 J. · Herbst · 21 J. alt · 2 Koffer · niemand gekannt<br>
+    Anfang hart → Uni ok, Alltag nicht · abends allein<br>
+    nach 1 Monat → Laufverein → alles schneller<br>
+    Bewertung: wichtigste Erfahrung · nicht nur Sprache, sondern <b>auf mich selbst verlassen</b><br>
+    Schluss: jedem empfehlen → ins Ausland
+  </div>
+
+  <p>Keywords only. Your eyes should be on your partner and the examiners, not on the paper.</p>
+
+  <h3>The four scoring criteria</h3>
+
+  <p>All three speaking parts are scored on the same four criteria, 25 points per part:</p>
+
+  <table>
+    <thead><tr><th>Criterion</th><th>What it rewards</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="de">Ausdrucksfähigkeit</span><br><span class="en">Range of expression · 7 pts</span></td>
+        <td>Varied vocabulary and sentence structures. Do you have more than one way to say something? Are you using B2 connectors and not just <span class="de">und / dann</span>?</td>
+      </tr>
+      <tr>
+        <td><span class="de">Aufgabenbewältigung</span><br><span class="en">Task completion &amp; fluency · 7 pts</span></td>
+        <td>Did you actually do the task — describe the experience <em>and</em> evaluate it? Did you speak long enough, without long pauses? Did you engage with your partner's questions?</td>
+      </tr>
+      <tr>
+        <td><span class="de">Formale Richtigkeit</span><br><span class="en">Grammatical accuracy · 7 pts</span></td>
+        <td>Correct verb positions, cases, tenses. Small errors are tolerated at B2; errors that break comprehension are not.</td>
+      </tr>
+      <tr>
+        <td><span class="de">Aussprache und Intonation</span><br><span class="en">Pronunciation &amp; intonation · 4 pts</span></td>
+        <td>Clear, comprehensible pronunciation with natural sentence melody. A foreign accent is fine. Monotone reading is not.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Notice that <strong>only 7 of 25 points are pure grammar</strong>. Speaking at length, evaluating, and sounding alive are worth more than being error-free.</p>
+
+  <h3>The question phase</h3>
+
+  <p>After each talk, the other candidate asks questions. This is scored — for both of you.</p>
+
+  <ul>
+    <li><strong>Ask open W-questions</strong>, never yes/no questions. <span class="de">„Hat es dir gefallen?“</span> gives your partner nothing to say. <span class="de">„Was war für dich am schwierigsten?“</span> gives them thirty seconds.</li>
+    <li><strong>Two or three questions is enough.</strong> Listen while your partner speaks and build a question from something they actually said — that shows real comprehension.</li>
+    <li><strong>When answering, don't give one word.</strong> Answer, then add a reason or an example. Two to three sentences per answer.</li>
+  </ul>
+</section>
+
+<!-- 4. PHRASES -->
+<section id="phrases">
+  <div class="sec-head"><div class="sec-num">04</div><h2>Ready-made phrases (Redemittel)</h2></div>
+
+  <p>These are the fixed parts of your talk. Learn them until they come out without thinking, so your attention is free for the content.</p>
+
+  <div class="panel">
+    <div class="panel-title">Starting your talk</div>
+    <div class="phrase">
+      <div class="g">Ich möchte euch heute von … erzählen.</div>
+      <div class="e">Today I'd like to tell you about … — the safest, most natural opening.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich habe mich für das Thema „…“ entschieden, weil es mir persönlich viel bedeutet.</div>
+      <div class="e">I chose the topic "…" because it means a lot to me personally.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Mir fällt dazu sofort … ein.</div>
+      <div class="e">The first thing that comes to mind is … — sounds spontaneous, which is exactly the effect you want.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Setting the scene</div>
+    <div class="phrase">
+      <div class="g">Das war vor etwa drei Jahren, als ich noch in … gewohnt habe.</div>
+      <div class="e">That was about three years ago, when I was still living in …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich war damals ungefähr zwanzig Jahre alt.</div>
+      <div class="e">I was about twenty years old at the time.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich bin zusammen mit meiner Schwester dorthin gefahren.</div>
+      <div class="e">I went there together with my sister.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Telling the story — adding colour</div>
+    <div class="phrase">
+      <div class="g">Am Anfang war es ehrlich gesagt ziemlich schwierig.</div>
+      <div class="e">At the beginning it was honestly quite difficult. — "ehrlich gesagt" makes you sound like a person, not a textbook.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Was mich besonders beeindruckt hat, war …</div>
+      <div class="e">What impressed me particularly was …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich erinnere mich noch genau daran, wie …</div>
+      <div class="e">I still remember exactly how …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Plötzlich hat sich alles verändert.</div>
+      <div class="e">Suddenly everything changed.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Besonders schwierig war für mich, dass …</div>
+      <div class="e">What was particularly difficult for me was that …</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Evaluating — the part that earns the points</div>
+    <div class="phrase">
+      <div class="g">Rückblickend würde ich sagen, dass …</div>
+      <div class="e">Looking back, I would say that … — the single most useful phrase in this part.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Diese Erfahrung war für mich deshalb so wichtig, weil …</div>
+      <div class="e">This experience was so important to me because …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Ich habe dabei nicht nur …, sondern vor allem … gelernt.</div>
+      <div class="e">In doing so I learned not only …, but above all … — a structure that always sounds sophisticated.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Seitdem sehe ich vieles mit anderen Augen.</div>
+      <div class="e">Since then I see many things differently.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Closing and handing over</div>
+    <div class="phrase">
+      <div class="g">Deshalb kann ich jedem nur empfehlen, …</div>
+      <div class="e">That's why I can only recommend to everyone that …</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Das war meine Erfahrung. Möchtest du etwas dazu wissen?</div>
+      <div class="e">That was my experience. Would you like to know anything about it? — a clean, natural hand-over.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Asking your partner questions</div>
+    <div class="phrase">
+      <div class="g">Was hat dir daran am besten gefallen?</div>
+      <div class="e">What did you like best about it?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Wie hast du dich in diesem Moment gefühlt?</div>
+      <div class="e">How did you feel at that moment?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Was würdest du heute anders machen?</div>
+      <div class="e">What would you do differently today?</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Du hast gerade … erwähnt — kannst du das genauer erklären?</div>
+      <div class="e">You just mentioned … — can you explain that in more detail? — shows you were really listening.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Würdest du das noch einmal machen? Warum (nicht)?</div>
+      <div class="e">Would you do it again? Why (not)?</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Buying yourself time — instead of silence</div>
+    <div class="phrase">
+      <div class="g">Das ist eine gute Frage, lass mich kurz überlegen.</div>
+      <div class="e">That's a good question, let me think for a second.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Wie soll ich das sagen …</div>
+      <div class="e">How should I put this … — a real filler that native speakers use.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Mir fällt das Wort gerade nicht ein, aber ich meine so etwas wie …</div>
+      <div class="e">I can't think of the word right now, but I mean something like … — a paraphrase strategy that scores <em>better</em> than falling silent.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TIPS -->
+<section id="tips">
+  <div class="sec-head"><div class="sec-num">05</div><h2>Exam tips</h2></div>
+
+  <h3>Time management</h3>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-time">At home</div><div class="tl-body"><b>Prepare all seven talks</b>One keyword sheet per topic. Practise each aloud with a timer until 90 seconds feels natural.</div></div>
+    <div class="tl-row"><div class="tl-time">Prep room</div><div class="tl-body"><b>Max 4–5 minutes on Part 1</b>Choose your topic, jot your keywords, move on. Parts 2 and 3 need the remaining 15 minutes far more.</div></div>
+    <div class="tl-row"><div class="tl-time">In the talk</div><div class="tl-body"><b>Aim for 90 seconds</b>Under 60 seconds looks like you had nothing to say. Over two minutes and the examiner will stop you mid-sentence.</div></div>
+  </div>
+
+  <h3>What examiners are looking for</h3>
+  <ul>
+    <li><strong>Evaluation, not just narration.</strong> The task is called <em>talking about experiences</em> — they want to hear why it mattered to you, not a chronological list of events.</li>
+    <li><strong>Continuous speech.</strong> A minute and a half without collapsing into pauses.</li>
+    <li><strong>Natural intonation.</strong> Sentence melody, stress, a rhythm that sounds like speech.</li>
+    <li><strong>Real engagement in the question phase</strong> — both when asking and when answering.</li>
+  </ul>
+
+  <h3>Common mistakes to avoid</h3>
+
+  <div class="panel">
+    <div class="mistake">
+      <div class="bad">Reading a fully written text off the note paper.</div>
+      <div class="fix">Keywords only. It costs you points in intonation and fluency, and examiners spot it instantly.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">A memorised talk that sounds recited — same speed, no pauses, no emphasis.</div>
+      <div class="fix">Memorise the frame and the phrases; let the middle stay slightly improvised.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Pure plot summary: "then we went there, then we ate, then we came back."</div>
+      <div class="fix">Give at least a quarter of your time to <span class="de">Rückblickend würde ich sagen …</span> and why it mattered.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Choosing an "impressive" topic you lack vocabulary for.</div>
+      <div class="fix">Choose the topic where you can speak most easily. There are no bonus points for ambition.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Falling silent when a word is missing.</div>
+      <div class="fix">Paraphrase out loud. <span class="de">„Ich meine so etwas wie …“</span> — describing around a gap is a B2 skill and is scored positively.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Asking your partner a yes/no question, then having nothing left to say.</div>
+      <div class="fix">Prepare three universal W-questions that work for any topic. They're in the phrase list above.</div>
+    </div>
+    <div class="mistake">
+      <div class="bad">Over-correcting every small slip and breaking your own flow.</div>
+      <div class="fix">Correct a real mistake once, calmly, then move on. Constant self-correction damages fluency more than the error did.</div>
+    </div>
+  </div>
+
+  <h3>Three quick practical tips</h3>
+  <ul>
+    <li><strong>Record yourself.</strong> Phone voice memo, 90 seconds, listen back. You will hear your pauses and monotone far more clearly than you feel them.</li>
+    <li><strong>Pick topics that overlap.</strong> A trip, an important experience and an important person can all be built from the same story with a different emphasis — that's three topics for the price of one.</li>
+    <li><strong>Speak to your partner, not the examiners.</strong> The task is a conversation between candidates. Eye contact with your partner reads as natural communication.</li>
+  </ul>
+</section>
+
+<!-- 6. RECAP -->
+<section id="recap">
+  <div class="sec-head"><div class="sec-num">06</div><h2>Recap</h2></div>
+
+  <div class="recap">
+    <h4 style="margin-top:0">The format</h4>
+    <ul>
+      <li>Choose 1 of 7 fixed topics · ~90-second talk · then partner's questions</li>
+      <li>Whole part ≈ 5 minutes · worth 25 of 75 oral points</li>
+      <li>The self-introduction beforehand is <strong>not</strong> scored</li>
+      <li>20 minutes prep covers all three speaking parts — use only 4–5 here</li>
+    </ul>
+
+    <h4>The seven topics</h4>
+    <ul>
+      <li><span class="de">eine Reise · ein Buch · ein Film · ein Sportereignis · eine Musikveranstaltung · eine wichtige Person · eine wichtige Erfahrung</span></li>
+    </ul>
+
+    <h4>The frame to remember</h4>
+    <ul>
+      <li>Einstieg → Rahmen → Kern → <strong>Bewertung</strong> → Abschluss</li>
+      <li>The Bewertung is what the task is really asking for — never skip it</li>
+    </ul>
+
+    <h4>The scoring</h4>
+    <ul>
+      <li>Ausdrucksfähigkeit 7 · Aufgabenbewältigung 7 · Formale Richtigkeit 7 · Aussprache 4</li>
+      <li>Only 7 of 25 points are grammar — fluency and task handling are worth more</li>
+    </ul>
+
+    <h4>The single most useful habit</h4>
+    <ul>
+      <li>Practise aloud with a timer, from keywords. Not silently, not from a script.</li>
+    </ul>
+  </div>
+
+  <h3>Before Day 3</h3>
+  <p>If you want to practise: write a keyword sheet for three of the seven topics and record a 90-second talk for each. Check that at least a quarter of every talk is evaluation, not narration.</p>
+</section>
+
+<footer>
+  <p>Day 2 complete. Say <strong>“next”</strong> to move on to <strong>Day 3 — Speaking Part 2</strong> (<span class="de">Diskussion</span>: reading a controversial newspaper text and arguing with your partner), or ask any questions about this part first.</p>
+</footer>
+
+</div>
+</body>
+</html>
