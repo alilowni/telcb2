@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121311">
+<title>telc Deutsch B2 — Day 5: The Last Week</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121311;
+  --bg-deep:#0d0e0c;
+  --panel:#1a1b18;
+  --line:#2c2e28;
+  --line-soft:#24261f;
+  --text:#e9e5da;
+  --text-dim:#a8a294;
+  --text-faint:#7d786c;
+  --accent:#c9a961;
+  --accent-dim:#8a7440;
+  --sage:#8fa583;
+  --sage-dim:#5f7256;
+  --rose:#c08b7d;
+  --radius:3px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(143,165,131,0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(201,169,97,0.03), transparent 70%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:'Karla', sans-serif;
+  font-size:17px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  overflow-x:hidden;
+  overflow-wrap:break-word;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 32px 120px;}
+
+header{padding:80px 0 52px;border-bottom:1px solid var(--line);margin-bottom:64px;}
+.eyebrow{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:22px;}
+h1{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,6vw,56px);line-height:1.1;letter-spacing:-0.015em;margin-bottom:16px;}
+h1 em{font-style:italic;color:var(--sage);}
+.subtitle{color:var(--text-dim);font-size:19px;max-width:56ch;font-weight:300;}
+
+.tracker{display:flex;gap:8px;margin-top:40px;flex-wrap:wrap;}
+.day-chip{flex:1;min-width:120px;border:1px solid var(--line);border-radius:var(--radius);padding:11px 13px;background:var(--panel);text-decoration:none;color:inherit;display:block;}
+a.day-chip:hover{border-color:var(--sage-dim);}
+.day-chip.active{border-color:var(--sage-dim);background:rgba(143,165,131,0.07);}
+.day-chip.done{opacity:0.5;}
+.day-chip .n{font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);}
+.day-chip.active .n{color:var(--sage);}
+.day-chip .t{font-size:13.5px;color:var(--text-dim);margin-top:2px;}
+.day-chip.active .t{color:var(--text);}
+
+section{margin-bottom:80px;scroll-margin-top:30px;}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--line-soft);}
+.sec-num{font-family:'Newsreader',serif;font-size:15px;color:var(--sage);font-weight:500;letter-spacing:0.08em;flex-shrink:0;}
+h2{font-family:'Newsreader',serif;font-weight:400;font-size:30px;line-height:1.25;letter-spacing:-0.01em;}
+h3{font-family:'Karla',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage);margin:40px 0 14px;}
+h4{font-family:'Newsreader',serif;font-size:20px;font-weight:500;margin:26px 0 8px;}
+p{margin-bottom:18px;color:var(--text-dim);}
+p.lead{color:var(--text);font-size:19.5px;font-weight:300;line-height:1.7;}
+strong{color:var(--text);font-weight:600;}
+
+.de{color:var(--text);font-weight:500;}
+.en{color:var(--text-faint);font-style:italic;font-size:15px;}
+
+ul,ol{margin:0 0 22px 0;padding-left:0;list-style:none;}
+li{color:var(--text-dim);margin-bottom:12px;padding-left:24px;position:relative;}
+li::before{content:"—";position:absolute;left:0;color:var(--sage-dim);}
+ol{counter-reset:c;}
+ol li::before{counter-increment:c;content:counter(c) ".";font-size:14px;color:var(--sage-dim);top:1px;}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;margin:26px 0;}
+.panel-title{font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:16px;font-weight:600;}
+.callout{border-left:2px solid var(--sage);padding-left:22px;margin:28px 0;}
+.callout p:last-child{margin-bottom:0;}
+
+.quiet{
+  border:1px solid var(--sage-dim);border-radius:var(--radius);
+  background:rgba(143,165,131,0.05);padding:30px 32px;margin:28px 0;
+}
+.quiet p:last-child{margin-bottom:0;}
+.quiet p{color:var(--text);}
+
+/* countdown */
+.countdown{margin:28px 0;}
+.cd{display:flex;gap:22px;padding:20px 0;border-bottom:1px solid var(--line-soft);}
+.cd:last-child{border-bottom:none;}
+.cd-day{
+  font-family:'Newsreader',serif;font-size:15px;color:var(--sage);
+  flex-shrink:0;width:92px;line-height:1.6;letter-spacing:0.04em;
+}
+.cd-body b{color:var(--text);font-weight:600;display:block;margin-bottom:3px;font-size:16.5px;}
+.cd-body{color:var(--text-dim);font-size:15.5px;line-height:1.7;}
+
+/* recap cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+.card{background:var(--panel);padding:22px 24px;}
+.card .cn{font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-faint);}
+.card .ct{font-family:'Newsreader',serif;font-size:19px;color:var(--text);margin:3px 0 10px;}
+.card .cb{font-size:14.5px;color:var(--text-dim);line-height:1.7;}
+.card .cb b{color:var(--text);font-weight:500;}
+
+.phrase{padding:14px 0;border-bottom:1px solid var(--line-soft);}
+.phrase:last-child{border-bottom:none;padding-bottom:0;}
+.phrase .g{color:var(--text);font-size:16.5px;line-height:1.55;}
+.phrase .g::before{content:"„";color:var(--sage-dim);}
+.phrase .g::after{content:"“";color:var(--sage-dim);}
+.phrase .e{color:var(--text-faint);font-size:14px;font-style:italic;margin-top:4px;line-height:1.5;}
+
+.swap{padding:16px 0;border-bottom:1px solid var(--line-soft);}
+.swap:last-child{border-bottom:none;}
+.swap .from{color:var(--rose);font-size:15.5px;}
+.swap .from::before{content:"instead of  ";font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);}
+.swap .to{color:var(--sage);font-size:15.5px;margin-top:3px;}
+.swap .to::before{content:"try  ";font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);}
+
+.checklist li::before{content:"□";color:var(--sage-dim);font-size:15px;}
+
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--text-faint);font-size:14.5px;}
+footer strong{color:var(--sage);}
+
+.read-progress{
+  position:fixed;top:0;left:0;right:0;z-index:40;
+  height:calc(3px + env(safe-area-inset-top,0px));
+  background:var(--line);
+}
+.read-bar{
+  position:absolute;left:0;bottom:0;height:3px;width:0;
+  background:var(--sage);
+}
+.read-pct{
+  position:fixed;z-index:41;pointer-events:none;
+  top:calc(10px + env(safe-area-inset-top,0px));
+  right:16px;
+  margin:0;
+  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--sage);font-weight:600;
+}
+
+@media(max-width:640px){
+  body{font-size:16px;background-attachment:scroll;}
+  .wrap{padding:0 18px calc(80px + env(safe-area-inset-bottom,0px));}
+  header{padding:52px 0 32px;margin-bottom:40px;}
+  h1{font-size:clamp(32px,9vw,48px);}
+  h2{font-size:26px;}
+  .subtitle{font-size:17px;}
+  .tracker{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .day-chip{min-width:0;padding:10px 12px;}
+  .sec-head{flex-direction:column;gap:6px;}
+  .panel,.quiet{padding:18px 16px;}
+  .callout{padding-left:14px;}
+  .cd{flex-direction:column;gap:4px;}
+  .cd-day{width:auto;}
+  .cards{grid-template-columns:1fr;}
+  section{margin-bottom:52px;scroll-margin-top:48px;}
+}
+</style>
+</head>
+<body data-day="5">
+<div class="read-progress" aria-hidden="true"><div class="read-bar" id="read-bar"></div></div>
+<p class="read-pct" id="read-pct">0%</p>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none;">telc Deutsch B2</a> · Day 5 of 5</div>
+  <h1>The Last Week<br><em>Recap &amp; Mindset</em></h1>
+  <p class="subtitle">Nothing new from here. This week is about consolidating what you already have, arriving rested, and walking into the room calm.</p>
+
+  <div class="tracker">
+    <a class="day-chip done" href="telcb2-day1.html"><div class="n">Day 1</div><div class="t">Writing ✓</div></a>
+    <a class="day-chip done" href="telcb2-day2.html"><div class="n">Day 2</div><div class="t">Speaking 1 ✓</div></a>
+    <a class="day-chip done" href="telcb2-day3.html"><div class="n">Day 3</div><div class="t">Speaking 2 ✓</div></a>
+    <a class="day-chip done" href="telcb2-day4.html"><div class="n">Day 4</div><div class="t">Speaking 3 ✓</div></a>
+    <a class="day-chip active" href="telcb2-day5.html"><div class="n">Day 5</div><div class="t">Last week</div></a>
+  </div>
+</header>
+
+<!-- 1 -->
+<section id="intro">
+  <div class="sec-head"><div class="sec-num">01</div><h2>Where you are now</h2></div>
+
+  <p class="lead">You know the format of all four parts. That is most of the work.</p>
+
+  <p>The last week before an exam is not a learning week. Anything you try to learn now will not be stable enough to use under pressure, and the effort of cramming costs you more in sleep and calm than it gains you in knowledge.</p>
+
+  <p>So this week has three jobs: <strong>keep your German warm</strong>, <strong>make the format automatic</strong>, and <strong>arrive rested</strong>. That's all.</p>
+
+  <div class="quiet">
+    <p>You need 60% in each block — 135 of 225 written, 45 of 75 oral. That means you can get roughly <strong>two out of every five things wrong</strong> and still pass comfortably. This exam is not looking for perfection, and neither should you.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="week">
+  <div class="sec-head"><div class="sec-num">02</div><h2>The seven days</h2></div>
+
+  <p>Keep sessions short — 60 to 90 minutes a day is plenty. Consistency matters more than volume this week.</p>
+
+  <div class="countdown">
+    <div class="cd">
+      <div class="cd-day">7 days out</div>
+      <div class="cd-body"><b>One full written mock, timed</b>Reading, Sprachbausteine, listening, writing — in one sitting, no pauses. Not to learn, but to find out how the time feels. Score it and then set it aside.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-day">6 days out</div>
+      <div class="cd-body"><b>Writing day</b>Two letters: one Anfrage, one Beschwerde, 30 minutes each. Check only three things — Betreff present, three Leitpunkte developed, Sie-form throughout.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-day">5 days out</div>
+      <div class="cd-body"><b>Speaking Part 1</b>Record yourself on three of the seven topics. Listen back once. You're checking length and whether the evaluation is there — not hunting for grammar mistakes.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-day">4 days out</div>
+      <div class="cd-body"><b>Speaking Parts 2 and 3</b>With a partner if possible, out loud alone if not. Practise the two moves that matter: concede-then-object, and reaching agreement.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-day">3 days out</div>
+      <div class="cd-body"><b>Listening only</b>The audio plays once, so train that. Two or three practice sets. Accept that missing a few items is normal.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-day">2 days out</div>
+      <div class="cd-body"><b>Light review</b>Read through your phrase lists aloud. Say them, don't stare at them. Half an hour, then stop.</div>
+    </div>
+    <div class="cd">
+      <div class="cd-day">1 day out</div>
+      <div class="cd-body"><b>Almost nothing</b>Pack your bag, check the address and time, watch something in German for pleasure. No mock tests. Sleep early — this is the single highest-value thing you can do for your score.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>If you fall behind this schedule, don't compress two days into one. Skip a day instead. Arriving tired costs more points than a missed practice session.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="recap">
+  <div class="sec-head"><div class="sec-num">03</div><h2>All four parts, briefly</h2></div>
+
+  <p>If you remember nothing else, remember these four shapes.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="cn">Day 1 · Writing</div>
+      <div class="ct">Six blocks</div>
+      <div class="cb">Betreff → Anrede → Einleitung → Hauptteil → Forderung → Schlussformel.<br><br><b>Three</b> Leitpunkte, properly. 150–200 words. Sie throughout.</div>
+    </div>
+    <div class="card">
+      <div class="cn">Day 2 · Speaking 1</div>
+      <div class="ct">Five steps</div>
+      <div class="cb">Einstieg → Rahmen → Kern → <b>Bewertung</b> → Abschluss.<br><br>~90 seconds. Keywords, not a script. The Bewertung is the task.</div>
+    </div>
+    <div class="card">
+      <div class="cn">Day 3 · Speaking 2</div>
+      <div class="ct">Four moves</div>
+      <div class="cb">These → Begründung → Beispiel → Rückfrage.<br><br>~20 seconds per turn. Concede, then object. End turns with a question.</div>
+    </div>
+    <div class="card">
+      <div class="cn">Day 4 · Speaking 3</div>
+      <div class="ct">Point by point</div>
+      <div class="cb">Suggest → react → <b>decide out loud</b> → next point.<br><br>~50 seconds each. One compromise, quick agreement elsewhere.</div>
+    </div>
+  </div>
+
+  <h3>The five phrases that carry the whole oral exam</h3>
+
+  <div class="panel">
+    <div class="phrase">
+      <div class="g">Rückblickend würde ich sagen, dass …</div>
+      <div class="e">Looking back I'd say that … — Part 1, the evaluation.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Da hast du zum Teil recht. Trotzdem sehe ich das anders, weil …</div>
+      <div class="e">You're partly right. Still, I see it differently, because … — Part 2, the key move.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Wie siehst du das?</div>
+      <div class="e">How do you see it? — Parts 2 and 3, keeps the interaction alive.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Können wir uns darauf einigen, dass …?</div>
+      <div class="e">Can we agree that …? — Part 3, reaching the decision.</div>
+    </div>
+    <div class="phrase">
+      <div class="g">Fassen wir noch einmal zusammen: …</div>
+      <div class="e">Let's summarise once more: … — the clean way to finish.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="examiners">
+  <div class="sec-head"><div class="sec-num">04</div><h2>How to think about the examiners</h2></div>
+
+  <p class="lead">Most exam nerves come from imagining the examiners as judges looking for faults. That is not what they are doing.</p>
+
+  <p>Two licensed examiners sit with you. They mostly moderate — they set the task, keep time, and observe. Your real conversation partner is the other candidate, not them. Their job is to fill in a criteria grid, and that grid is a list of things you <em>can</em> demonstrate, not a list of errors to hunt for.</p>
+
+  <h3>Four things that are true, and worth knowing</h3>
+
+  <ul>
+    <li><strong>They expect mistakes.</strong> B2 is defined as independent use, not accuracy. The written criterion is whether errors block understanding — not whether they exist.</li>
+    <li><strong>An accent is fine.</strong> The pronunciation criterion asks for comprehensible speech with natural intonation. Nobody is scoring how German you sound.</li>
+    <li><strong>You are graded individually.</strong> A dominant or a struggling partner cannot pull your score down. And helping a stuck partner is scored <em>positively</em> — it's exactly the interactive skill being tested.</li>
+    <li><strong>They have heard hundreds of candidates.</strong> Your nervousness is completely ordinary to them. It is not being marked.</li>
+  </ul>
+
+  <div class="quiet">
+    <p>A useful reframe: the examiners are not deciding whether you're good enough. They're collecting evidence of what you can do — and <strong>every sentence you say gives them something to credit</strong>. Silence gives them nothing. That's the whole logic of the oral exam.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="mindset">
+  <div class="sec-head"><div class="sec-num">05</div><h2>Mindset</h2></div>
+
+  <h3>Three swaps worth making</h3>
+
+  <div class="panel">
+    <div class="swap">
+      <div class="from">"I have to speak perfectly."</div>
+      <div class="to">"I have to keep speaking." — fluency and task completion are worth more points than accuracy.</div>
+    </div>
+    <div class="swap">
+      <div class="from">"I hope I get an easy topic."</div>
+      <div class="to">"I have a structure for any topic." — you do. That's what the last four days were for.</div>
+    </div>
+    <div class="swap">
+      <div class="from">"If I make a mistake, it's over."</div>
+      <div class="to">"I can lose 40% and still pass." — which is the actual arithmetic.</div>
+    </div>
+  </div>
+
+  <h3>When something goes wrong in the room</h3>
+
+  <p>Something usually does. Here's what to do, and what to say.</p>
+
+  <div class="panel">
+    <div class="panel-title">You go blank</div>
+    <div class="phrase">
+      <div class="g">Moment, lass mich kurz überlegen.</div>
+      <div class="e">One moment, let me think briefly. — a normal, human sentence. Two seconds of silence after it is fine.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">A word is missing</div>
+    <div class="phrase">
+      <div class="g">Mir fällt das Wort gerade nicht ein — ich meine so etwas wie …</div>
+      <div class="e">I can't think of the word — I mean something like … Paraphrasing scores better than stopping.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">You didn't understand something</div>
+    <div class="phrase">
+      <div class="g">Entschuldigung, könnten Sie das bitte wiederholen?</div>
+      <div class="e">Sorry, could you repeat that please? — asking is a competence, not a failure.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Your partner won't stop talking</div>
+    <div class="phrase">
+      <div class="g">Darf ich dazu kurz etwas sagen?</div>
+      <div class="e">May I say something about that briefly? — polite interruption is a scored skill. Use it.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Your partner has gone quiet</div>
+    <div class="phrase">
+      <div class="g">Und wie ist das bei dir? Was würdest du vorschlagen?</div>
+      <div class="e">And how is it for you? What would you suggest? — helping them helps you.</div>
+    </div>
+  </div>
+
+  <h3>Steadying yourself</h3>
+
+  <ul>
+    <li><strong>Breathe out longer than you breathe in.</strong> Four counts in, six out, a few times before you go in. It slows your heart rate; it is not a trick, it's physiology.</li>
+    <li><strong>Speak your first sentence slowly.</strong> Rushing the opening is what makes people feel out of control. A slow first sentence sets the pace for everything after it.</li>
+    <li><strong>Look at your partner, not the examiners.</strong> It makes the room feel smaller and the task feel like a conversation, which is what it is.</li>
+    <li><strong>Let a bad section end.</strong> If the listening went badly, it's finished. Carrying it into the writing turns one weak section into two.</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="day">
+  <div class="sec-head"><div class="sec-num">06</div><h2>Exam day</h2></div>
+
+  <h3>The bag, the night before</h3>
+
+  <ul class="checklist">
+    <li>ID / passport — the one you registered with</li>
+    <li>Registration confirmation, if your centre asks for it</li>
+    <li>Two or three pens that work</li>
+    <li>Water and something small to eat</li>
+    <li>The address, and how long the journey takes</li>
+  </ul>
+
+  <h3>The shape of the day</h3>
+
+  <p>Roughly 140 minutes of written exam — reading and Sprachbausteine together, then listening, then writing. Then, at some point, 20 minutes of preparation for the oral exam, followed by about 15 minutes with your partner and two examiners.</p>
+
+  <p>In the 20-minute prep room, spend it roughly like this: <strong>5 minutes on Part 1</strong> (you prepared this at home), <strong>8 minutes on Part 2</strong> (read the text, pick a side, note two arguments), <strong>5 minutes on Part 3</strong> (one concrete idea per prompt). Two minutes spare.</p>
+
+  <h3>Small things that help</h3>
+
+  <ul>
+    <li>Arrive 20–30 minutes early. Rushing is the most avoidable source of stress.</li>
+    <li>Eat something before. Two and a half hours of concentration on an empty stomach is unnecessarily hard.</li>
+    <li>Don't compare notes with other candidates between sections. It rarely helps and often unsettles.</li>
+    <li>If you get the chance in the prep room, agree with your partner to use <span class="de">du</span> and decide who opens. It removes friction from the first thirty seconds.</li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section id="final">
+  <div class="sec-head"><div class="sec-num">07</div><h2>Last word</h2></div>
+
+  <div class="quiet">
+    <p>You've done the preparation. In the room, your only job is to keep speaking, cover the points, and let the structures you practised do their work.</p>
+    <p>If a section goes badly, it is one block of many. If you don't pass a block, most centres let you retake just that block — it is not the end of anything.</p>
+    <p style="margin-top:22px"><span class="de" style="font-size:19px">Viel Erfolg. Du schaffst das.</span></p>
+  </div>
+</section>
+
+<footer>
+  <p>That's the full five-day course. If you'd like, tell me which part you want to <strong>practise</strong> — I can give you real prompts, play your partner for Parts 2 and 3, or mark a letter you write.</p>
+</footer>
+
+</div>
+<script src="read.js"></script>
+</body>
+</html>

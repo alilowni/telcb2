@@ -43,6 +43,7 @@
   var data = load();
   var links = document.querySelectorAll('a.day[data-day]');
   var done = 0;
+  var total = links.length;
   links.forEach(function (link) {
     var n = Number(data[link.getAttribute('data-day')]) || 0;
     var fill = link.querySelector('.day-fill');
@@ -59,8 +60,8 @@
   });
   var course = document.getElementById('course-prog');
   if (course) {
-    course.textContent = done === 4
-      ? 'All four days read.'
-      : done + ' of 4 days finished · progress is saved on this phone.';
+    course.textContent = done === total && total > 0
+      ? 'All ' + total + ' days read.'
+      : done + ' of ' + total + ' days finished · progress is saved on this phone.';
   }
 })();
