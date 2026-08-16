@@ -62,6 +62,6 @@
   if (course) {
     course.textContent = done === total && total > 0
       ? 'All ' + total + ' days read.'
-      : done + ' of ' + total + ' days finished · progress is saved on this phone.';
+      : done + ' of ' + total + ' days finished · this phone remembers your progress.';
   }
 })();
